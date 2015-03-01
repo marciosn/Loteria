@@ -98,11 +98,11 @@ public class QuinaFragment extends Fragment{
 								doc.getElementsByClass("data-concurso").text());
 								resultado_concurso_TV.setText(doc.getElementsByClass("resultado-concurso").text());
 								
-								String NAO_acumulado = doc.getElementsByClass("dados-nao-acumulou desativado").text();
-								if(NAO_acumulado.equals("") || NAO_acumulado == null){
-									acumulado_TV.setText(doc.getElementsByClass("dados-valor-acumulado").text());
+								String valor_acumulado = doc.getElementsByClass("valor-acumulado").text();
+								if(valor_acumulado.equalsIgnoreCase("R$ 0,00")){
+									acumulado_TV.setText("");
 								}else{
-									acumulado_TV.setText(NAO_acumulado);
+									acumulado_TV.setText("VALOR ACUMULADO: "+doc.getElementsByClass("valor-acumulado").text());
 								}
 								
 								Element table = doc.select("table").get(0);

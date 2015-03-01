@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/view2"
         android:layout_centerHorizontal="true"
-        android:text="Small Text"
+        android:textColor="#230083"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

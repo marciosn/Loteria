@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import br.com.qx.andetonha.loteria.fragments.DuplaSenaFragment;
 import br.com.qx.andetonha.loteria.fragments.GerarApostasFragment;
 import br.com.qx.andetonha.loteria.fragments.LotoFacilFragment;
 import br.com.qx.andetonha.loteria.fragments.MegaSenaFragment;
@@ -51,7 +52,7 @@ public class Home extends ActionBarActivity implements
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
-Fragment fragment = null;
+		Fragment fragment = null;
 		
 		switch (position) {
 		case 0:
@@ -68,6 +69,9 @@ Fragment fragment = null;
 			break;
 		case 4:
 			fragment = new LotoFacilFragment();
+			break;
+		case 5:
+			fragment = new DuplaSenaFragment();
 			break;
 		}
 		

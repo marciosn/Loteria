@@ -5,46 +5,48 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-    
     <string name="title_section1">Tela Inicial</string>
     <string name="title_section2">Gerar Aposta</string>
     <string name="title_section3">Mega Sena</string>
     <string name="Row_Quina">Quina</string>
     <string name="Row_Loto_Facil">Loto Fácil</string>
-    
+    <string name="Row_Dupla_Sena">Dupla Sena</string>
     <string name="gerar_aposta">Gerar Aposta</string>
     <string name="ver_resultados">Ver Resultados</string>
-    
     <string name="sena">Sena</string>
     <string name="quina">Quina</string>
     <string name="quadra">Quadra</string>
     <string name="terno">Terno</string>
-    
     <string name="buscarResultado">Buscar Resultado</string>
-	<string name="resultadoSena">Ver Resultado</string>
-	<string name="inputQuantidadeNumeros">Tamanho da aposta desejada</string>
-	
-	<string name="concurso_data">Concurso - Data</string>
-	<string name="resultado">Resultado</string>
-	
-	<string name="ganhadores_sena">Ganhadores Sena</string>
-	<string name="ganhadores_quina">Ganhadores Quina</string>
-	<string name="ganhadores_quadra">Ganhadores Quadra</string>
-	<string name="ganhadores_terno">Ganhadores Terno</string>
-	
-	<string name="valor_sena">R$ Sena</string>
-	<string name="valor_quina">R$ Quina</string>
-	<string name="valor_quadra">R$ Quadra</string>
-	<string name="valor_terno">R$ Terno</string>
-	
-	<!-- Loto Facil -->
-	<string name="acertos15">15 Ac</string>
-	<string name="acertos14">14 Ac</string>
-	<string name="acertos13">13 Ac</string>
-	<string name="acertos12">12 Ac</string>
-	<string name="acertos11">11 Ac</string>
-	<string name="R$">R$</string>
-	<string name="ganhadores">Ganhadores</string>
+    <string name="resultadoSena">Ver Resultado</string>
+    <string name="inputQuantidadeNumeros">Tamanho da aposta desejada</string>
+    <string name="concurso_data">Concurso - Data</string>
+    <string name="resultado">Resultado</string>
+    <string name="ganhadores_sena">Ganhadores Sena</string>
+    <string name="ganhadores_quina">Ganhadores Quina</string>
+    <string name="ganhadores_quadra">Ganhadores Quadra</string>
+    <string name="ganhadores_terno">Ganhadores Terno</string>
+    <string name="valor_sena">R$ Sena</string>
+    <string name="valor_quina">R$ Quina</string>
+    <string name="valor_quadra">R$ Quadra</string>
+    <string name="valor_terno">R$ Terno</string>
 
-	
+    <!-- Loto Facil -->
+    <string name="acertos15">15 Ac</string>
+    <string name="acertos14">14 Ac</string>
+    <string name="acertos13">13 Ac</string>
+    <string name="acertos12">12 Ac</string>
+    <string name="acertos11">11 Ac</string>
+    <string name="R$">R$</string>
+    <string name="ganhadores">Ganhadores</string>
+    
+    <!-- Dupla Sena -->
+    <string name="premiacao1">PREMIAÇÃO 1º SORTEIO</string>
+    <string name="premiacao2">PREMIAÇÃO 2º SORTEIO</string>
+    
+    
+    
+    <string name="title_activity_splash">Splash</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

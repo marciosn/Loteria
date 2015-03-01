@@ -106,9 +106,9 @@ public class MegaSenaFragment extends Fragment{
 						
 						String valor_acumulado = doc.getElementsByClass("valor-acumulado").text();
 						if(valor_acumulado.equalsIgnoreCase("R$ 0,00")){
-							acumulado_TV.setText(doc.getElementsByClass("dados-nao-acumulou").text());
+							acumulado_TV.setText("");
 						}else{
-							acumulado_TV.setText(doc.getElementsByClass("label-valor-acumulado").text());
+							acumulado_TV.setText("VALOR ACUMULADO: "+doc.getElementsByClass("valor-acumulado").text());
 						}
 						
 						Element table = doc.select("table").get(0);
