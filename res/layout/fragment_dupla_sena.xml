@@ -5,15 +5,14 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-     >
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="440dp" >
         
          <TextView
-        android:id="@+id/numero_concurso_duplasena"
+        android:id="@+id/numero_concurso_timemania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,10 +23,10 @@
         android:textColor="#a51226" />
 
     <TextView
-        android:id="@+id/resultado_concurso_duplasena"
+        android:id="@+id/resultado_concurso_timemania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/numero_concurso_duplasena"
+        android:layout_below="@+id/numero_concurso_timemania"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:text="@string/resultado"
@@ -40,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/resultado_concurso_duplasena"
+        android:layout_below="@+id/resultado_concurso_timemania"
         android:layout_marginTop="44dp"
         android:text="@string/sena"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -135,7 +134,7 @@
         android:background="#a51226" />
 
     <Button
-        android:id="@+id/VerResultadoDuplaSena"
+        android:id="@+id/VerResultadoTimeMania"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

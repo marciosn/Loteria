@@ -166,7 +166,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/acertos3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/sena2_duplasena"
@@ -179,8 +179,8 @@
         android:id="@+id/ganhadores_acertos11_lotofacil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView7"
-        android:layout_alignBottom="@+id/textView7"
+        android:layout_alignBaseline="@+id/acertos3"
+        android:layout_alignBottom="@+id/acertos3"
         android:layout_alignLeft="@+id/ganhadores_acertos12_lotofacil"
         android:text="@string/ganhadores"
         android:textColor="#920888"
@@ -201,8 +201,8 @@
         android:id="@+id/view1"
         android:layout_width="fill_parent"
         android:layout_height="2px"
-        android:layout_alignLeft="@+id/textView7"
-        android:layout_below="@+id/textView7"
+        android:layout_alignLeft="@+id/acertos3"
+        android:layout_below="@+id/acertos3"
         android:layout_marginTop="10dp"
         android:background="#920888" />
 

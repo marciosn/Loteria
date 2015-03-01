@@ -113,7 +113,8 @@ public class NavigationDrawerFragment extends Fragment {
 						getString(R.string.title_section3),
 						getString(R.string.Row_Quina),
 						getString(R.string.Row_Loto_Facil),
-						getString(R.string.Row_Dupla_Sena),}));
+						getString(R.string.Row_Dupla_Sena),
+						getString(R.string.Row_Time_Mania),}));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}

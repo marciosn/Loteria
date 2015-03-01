@@ -115,9 +115,9 @@ public class LotoFacilFragment extends Fragment{
 						
 						String valor_acumulado = doc.getElementsByClass("valor-acumulado").text();
 						if(valor_acumulado.equalsIgnoreCase("R$ 0,00")){
-							acumulou_TV.setText(doc.getElementsByClass("dados-nao-acumulou").text());
+							acumulou_TV.setText("");
 						}else{
-							acumulou_TV.setText(doc.getElementsByClass("label-valor-acumulado").text());
+							acumulou_TV.setText("VALOR ACUMULADO: "+doc.getElementsByClass("valor-acumulado").text());
 						}
 						
 						Element table = doc.select("table").get(0);

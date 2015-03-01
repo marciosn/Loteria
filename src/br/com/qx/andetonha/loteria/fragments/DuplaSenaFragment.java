@@ -67,8 +67,8 @@ public class DuplaSenaFragment extends Fragment{
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
 		
-		resultado_concurso_TV = (TextView) view.findViewById(R.id.resultado_concurso_duplasena);
-		numero_concurso_TV = (TextView) view.findViewById(R.id.numero_concurso_duplasena);
+		resultado_concurso_TV = (TextView) view.findViewById(R.id.resultado_concurso_timemania);
+		numero_concurso_TV = (TextView) view.findViewById(R.id.numero_concurso_timemania);
 		
 		ganhadores_sena1_TV = (TextView) view.findViewById(R.id.ganhadores_sena_duplasena);
 		ganhadores_quina1_TV = (TextView) view.findViewById(R.id.ganhadores_quina_duplasena);
@@ -88,7 +88,7 @@ public class DuplaSenaFragment extends Fragment{
 		
 		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_duplasena);
 		
-		btn_verResultadosDuplaSena = (Button) view.findViewById(R.id.VerResultadoDuplaSena);
+		btn_verResultadosDuplaSena = (Button) view.findViewById(R.id.VerResultadoTimeMania);
 		
 		btn_verResultadosDuplaSena.setOnClickListener(new OnClickListener() {
 			

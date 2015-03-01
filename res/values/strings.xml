@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Loteria</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
+    
+    <!-- ListView Drawer -->
     <string name="title_section1">Tela Inicial</string>
     <string name="title_section2">Gerar Aposta</string>
     <string name="title_section3">Mega Sena</string>
     <string name="Row_Quina">Quina</string>
     <string name="Row_Loto_Facil">Loto Fácil</string>
     <string name="Row_Dupla_Sena">Dupla Sena</string>
+    <string name="Row_Time_Mania">Time Mania</string>
+
+    <string name="app_name">Loteria</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
     <string name="gerar_aposta">Gerar Aposta</string>
     <string name="ver_resultados">Ver Resultados</string>
     <string name="sena">Sena</string>
@@ -44,9 +47,19 @@
     <string name="premiacao1">PREMIAÇÃO 1º SORTEIO</string>
     <string name="premiacao2">PREMIAÇÃO 2º SORTEIO</string>
     
+    <!-- Time Mania -->
+    <string name="acertos7">7 Acertos</string>
+    <string name="acertos6">6 Acertos</string>
+    <string name="acertos5">5 Acertos</string>
+    <string name="acertos4">4 Acertos</string>
+    <string name="acertos3">3 Acertos</string>
+    <string name="time_do_coracao">TIME DO CORAÇÃO</string>
+    <string name="time_do_coracao2">Time do coração</string>
+    <string name="vazio">#</string>
     
     
-    <string name="title_activity_splash">Splash</string>
+    
+    <string name="title_activity_splash">Loteria</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>

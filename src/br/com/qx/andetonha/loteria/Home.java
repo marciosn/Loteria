@@ -19,6 +19,7 @@ import br.com.qx.andetonha.loteria.fragments.LotoFacilFragment;
 import br.com.qx.andetonha.loteria.fragments.MegaSenaFragment;
 import br.com.qx.andetonha.loteria.fragments.QuinaFragment;
 import br.com.qx.andetonha.loteria.fragments.TelaInicial;
+import br.com.qx.andetonha.loteria.fragments.TimeManiaFragment;
 
 public class Home extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -72,6 +73,9 @@ public class Home extends ActionBarActivity implements
 			break;
 		case 5:
 			fragment = new DuplaSenaFragment();
+			break;
+		case 6:
+			fragment = new TimeManiaFragment();
 			break;
 		}
 		
