@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/vertical_costumized"
+    android:paddingLeft="@dimen/horizontal_costumized"
+    android:paddingRight="@dimen/horizontal_costumized"
+    android:paddingTop="@dimen/vertical_costumized"
+    tools:context="br.com.qx.andetonha.megasena.TelaPrincipal$PlaceholderFragment" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#FF8C0F"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/numeros_da_aposta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="9dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#ffffff"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_gerarApostas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:text="@string/gerar_aposta"
+        android:onClick="Test"
+        android:textColor="#ffffff"
+        android:background="#FFA23D"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:height="40dp"
+        android:width="150dp"
+        android:shadowColor="#000000"/>
+
+    <EditText
+        android:id="@+id/tamanhoJogado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="@string/inputQuantidadeNumeros"
+        android:inputType="number"
+        android:gravity="center">
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.com.qx.andetonha.megasena.TelaPrincipal$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/numero_concurso_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/concurso_data"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#39198F" />
+
+    <TextView
+        android:id="@+id/resultado_concurso_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/numero_concurso_Quina"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="@string/resultado"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/sena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/resultado_concurso_Quina"
+        android:layout_marginTop="44dp"
+        android:text="@string/quina"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/ganhadores_quina_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sena"
+        android:layout_alignBottom="@+id/sena"
+        android:layout_centerHorizontal="true"
+        android:text="@string/ganhadores_quina"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/rateio_quina_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ganhadores_quina_Quina"
+        android:layout_alignParentRight="true"
+        android:text="@string/valor_quina"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sena"
+        android:layout_below="@+id/sena"
+        android:layout_marginTop="16dp"
+        android:text="@string/quadra"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/ganhadores_quadra_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/quina"
+        android:layout_alignRight="@+id/ganhadores_quina_Quina"
+        android:text="@string/ganhadores_quadra"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/rateio_quadra_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ganhadores_quadra_Quina"
+        android:layout_alignBottom="@+id/ganhadores_quadra_Quina"
+        android:layout_alignRight="@+id/rateio_quina_Quina"
+        android:text="@string/valor_quadra"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/quadra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quina"
+        android:layout_marginTop="14dp"
+        android:text="@string/terno"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/ganhadores_terno_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/quadra"
+        android:layout_alignBottom="@+id/quadra"
+        android:layout_alignRight="@+id/ganhadores_quadra_Quina"
+        android:text="@string/ganhadores_terno"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <TextView
+        android:id="@+id/rateio_terno_Quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ganhadores_terno_Quina"
+        android:layout_alignRight="@+id/rateio_quadra_Quina"
+        android:text="@string/valor_terno"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#230083" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_alignLeft="@+id/quadra"
+        android:layout_below="@+id/quadra"
+        android:layout_marginTop="10dp"
+        android:background="#39198F" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="fill_parent"
+        android:layout_height="2px"
+        android:layout_above="@+id/ganhadores_quina_Quina"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:background="#39198F" />
+
+    <Button
+        android:id="@+id/VerResultadoQuina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:background="#39198F"
+        android:height="40dp"
+        android:onClick="getResultados"
+        android:shadowColor="#000000"
+        android:text="@string/buscarResultado"
+        android:textColor="#ffffff"
+        android:width="150dp" />
+
+    <TextView
+        android:id="@+id/acumulado_quina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</RelativeLayout>
