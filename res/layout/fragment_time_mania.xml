@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="440dp" >
+        android:layout_height="410dp" >
 
         <TextView
             android:id="@+id/numero_concurso_timemania"
