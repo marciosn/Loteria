@@ -62,7 +62,7 @@ public class GerarApostasFragment extends Fragment {
 		sk_valorAposta.setProgress(0);
 		tamanhoAposta = 6;
 		tv_valorBP.setText("Quantidade de nº jogados: 6");
-		tv_betValue.setText("Valor da aposta aprox. : R$2,50");
+		tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$2,50");
 		sk_valorAposta.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 			@Override
@@ -84,43 +84,43 @@ public class GerarApostasFragment extends Fragment {
 						+ String.valueOf(progress + 6));
 				switch (progress) {
 				case 0:
-					tv_betValue.setText("Valor da aposta aprox. : R$2,50");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$2,50");
 					tamanhoAposta = 6;
 					break;
 				case 1:
-					tv_betValue.setText("Valor da aposta aprox. : R$17,50");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$17,50");
 					tamanhoAposta = 7;
 					break;
 				case 2:
-					tv_betValue.setText("Valor da aposta aprox. : R$70,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$70,00");
 					tamanhoAposta = 8;
 					break;
 				case 3:
-					tv_betValue.setText("Valor da aposta aprox. : R$210,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$210,00");
 					tamanhoAposta = 9;
 					break;
 				case 4:
-					tv_betValue.setText("Valor da aposta aprox. : R$525,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$525,00");
 					tamanhoAposta = 10;
 					break;
 				case 5:
-					tv_betValue.setText("Valor da aposta aprox. : R$1.155,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$1.155,00");
 					tamanhoAposta = 11;
 					break;
 				case 6:
-					tv_betValue.setText("Valor da aposta aprox. : R$2.310,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + " R$2.310,00");
 					tamanhoAposta = 12;
 					break;
 				case 7:
-					tv_betValue.setText("Valor da aposta aprox. : R$4.290,00");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$4.290,00");
 					tamanhoAposta = 13;
 					break;
 				case 8:
-					tv_betValue.setText("Valor da aposta aprox. : R$7.507,50");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$7.507,50");
 					tamanhoAposta = 14;
 					break;
 				case 9:
-					tv_betValue.setText("Valor da aposta aprox. : R$12.512,50");
+					tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$12.512,50");
 					tamanhoAposta = 15;
 					break;
 				}
