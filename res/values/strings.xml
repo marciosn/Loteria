@@ -11,6 +11,8 @@
     <string name="Row_Time_Mania">Time Mania</string>
 
     <string name="hint_aposta">Palpite</string>
+    <string name="info_caixa">*Valores fornecidos pela Caixa Econômica Federal</string>
+    <string name="site_mega_sena"><a href="http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbwMPI0sDBxNXAOMwrzCjA0sjIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wNnUwNHfxcnSwBgIDUyhCvA5EawAjxsKckMjDDI9FQE-F4ca/dl5/d5/L2dBISEvZ0FBIS9nQSEh/#resultados">Acessar site Mega-Sena</a></string>
     <string name="app_name">Loteria</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -63,4 +65,5 @@
     <string name="title_activity_splash">Loteria</string>
     <string name="hello_world">Hello world!</string>
 
+    <color name="clouds">#ecf0f1</color>
 </resources>

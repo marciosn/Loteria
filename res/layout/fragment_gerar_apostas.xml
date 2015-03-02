@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/clouds" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,34 +20,36 @@
 
             <TextView
                 android:id="@+id/numeros_da_aposta"
-                android:hint="@string/hint_aposta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="@string/hint_aposta"
                 android:padding="9dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#ffffff"
                 android:textStyle="italic" />
+
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_betValue"
+            android:id="@+id/tv_valorAposta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/sk_betValue"
+            android:layout_below="@+id/bp_valorAposta"
             android:layout_marginTop="78dp"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/tv_skValue"
+            android:id="@+id/tv_valorBP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/sk_betValue"
+            android:layout_below="@+id/bp_valorAposta"
             android:layout_marginTop="30dp"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -67,12 +70,34 @@
             android:width="150dp" />
 
         <SeekBar
-            android:id="@+id/sk_betValue"
+            android:id="@+id/bp_valorAposta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout1"
             android:layout_marginTop="34dp"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tv_valorAposta"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="@string/info_caixa"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/tv_site_mega_sena"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:gravity="center"
+            android:text="@string/site_mega_sena"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </RelativeLayout>
 
