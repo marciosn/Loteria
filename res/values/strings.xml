@@ -10,6 +10,7 @@
     <string name="Row_Dupla_Sena">Dupla Sena</string>
     <string name="Row_Time_Mania">Time Mania</string>
 
+    <string name="hint_aposta">Palpite</string>
     <string name="app_name">Loteria</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

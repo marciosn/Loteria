@@ -249,7 +249,7 @@
             android:textColor="#FF6400" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tv_betValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/view1"
