@@ -5,9 +5,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.Response.Listener;
 import com.android.volley.toolbox.StringRequest;
@@ -16,6 +18,7 @@ import com.android.volley.toolbox.Volley;
 import br.com.qx.andetonha.loteria.R;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -69,6 +72,7 @@ public class TimeManiaFragment extends Fragment {
 				false);
 
 		context = getActivity();
+		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		rq = Volley.newRequestQueue(context);
 
 		resultado_concurso_TV = (TextView) view
@@ -113,10 +117,11 @@ public class TimeManiaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if(isOnline()){
+				if (isOnline()) {
 					getResultados(v);
-				}else{
-					Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(context, "Sem conexão com a internet.",
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -217,6 +222,11 @@ public class TimeManiaFragment extends Fragment {
 								Toast.LENGTH_LONG).show();
 					}
 				});
+		int timeout = 10000;
+		RetryPolicy policy = new DefaultRetryPolicy(timeout,
+				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+		request.setRetryPolicy(policy);
 		request.setTag(TAG);
 		rq.add(request);
 

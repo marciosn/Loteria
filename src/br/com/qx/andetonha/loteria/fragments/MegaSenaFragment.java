@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -21,10 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.Response.Listener;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -63,6 +66,7 @@ public class MegaSenaFragment extends Fragment {
 				false);
 
 		context = getActivity();
+		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		rq = Volley.newRequestQueue(context);
 
 		resultado_concurso_TV = (TextView) view
@@ -88,10 +92,11 @@ public class MegaSenaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if(isOnline()){
+				if (isOnline()) {
 					getResultados(v);
-				}else{
-					Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+				} else {
+					Toast.makeText(context, "Sem conexão com a internet.",
+							Toast.LENGTH_LONG).show();
 				}
 			}
 		});
@@ -100,8 +105,10 @@ public class MegaSenaFragment extends Fragment {
 	}
 
 	public boolean isOnline() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+		ConnectivityManager connectivityManager = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetworkInfo = connectivityManager
+				.getActiveNetworkInfo();
 		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
 	}
 
@@ -170,6 +177,11 @@ public class MegaSenaFragment extends Fragment {
 								Toast.LENGTH_LONG).show();
 					}
 				});
+		int timeout = 10000;
+		RetryPolicy policy = new DefaultRetryPolicy(timeout,
+				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+		request.setRetryPolicy(policy);
 		request.setTag(TAG);
 		rq.add(request);
 
