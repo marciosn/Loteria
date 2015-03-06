@@ -140,10 +140,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/view1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="72dp"
             android:background="#11BC08"
             android:height="40dp"
-            android:onClick="getResultados"
             android:shadowColor="#000000"
             android:text="@string/buscarResultado"
             android:textColor="#ffffff"
@@ -157,6 +156,7 @@
             android:layout_centerHorizontal="true"
             android:text="@string/resultado"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
             android:textColor="#11BC08" />
 
         <TextView
@@ -167,6 +167,19 @@
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#11BC08" />
+
+        <TextView
+            android:id="@+id/ultima_atualizacao_megasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/view1"
+            android:layout_alignRight="@+id/view1"
+            android:layout_below="@+id/view1"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="#11BC08" />
+
     </RelativeLayout>
 
 </ScrollView>

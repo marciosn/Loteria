@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
+import br.com.qx.andetonha.loteria.utils.Utils;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -69,7 +70,6 @@ public class LotoFacilFragment extends Fragment {
 				false);
 
 		context = getActivity();
-		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		rq = Volley.newRequestQueue(context);
 
 		resultado_concurso_TV = (TextView) view
@@ -108,27 +108,16 @@ public class LotoFacilFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isOnline()) {
-					getResultados(v);
-				} else {
-					Toast.makeText(context, "Sem conexão com a internet.",
-							Toast.LENGTH_LONG).show();
-				}
+				doIfOnline();
 			}
 		});
 
+		doIfOnline();
+		
 		return view;
 	}
 
-	public boolean isOnline() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetworkInfo = connectivityManager
-				.getActiveNetworkInfo();
-		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-	}
-
-	public void getResultados(View view) {
+	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
 		pDialog.setMessage("Buscando...");
@@ -140,7 +129,7 @@ public class LotoFacilFragment extends Fragment {
 					@Override
 					public void onResponse(String response) {
 						hidePDialog();
-
+						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						Document doc = Jsoup.parse(response);
 
 						numero_concurso_TV.setText(doc.getElementsByClass(
@@ -200,8 +189,7 @@ public class LotoFacilFragment extends Fragment {
 					@Override
 					public void onErrorResponse(VolleyError error) {
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, error.toString(),
-								Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
 				});
 		int timeout = 10000;
@@ -214,6 +202,14 @@ public class LotoFacilFragment extends Fragment {
 
 	}
 
+	public void doIfOnline(){
+		if (new Utils(context).isOnline()) {
+			getResultados();
+		} else {
+			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+		}
+	}
+	
 	private void hidePDialog() {
 		if (pDialog != null) {
 			pDialog.dismiss();

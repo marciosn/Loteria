@@ -134,21 +134,6 @@
             android:layout_marginBottom="16dp"
             android:background="#a51226" />
 
-        <Button
-            android:id="@+id/VerResultadoTimeMania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="105dp"
-            android:background="#a51226"
-            android:height="40dp"
-            android:onClick="getResultados"
-            android:shadowColor="#000000"
-            android:text="@string/buscarResultado"
-            android:textColor="#ffffff"
-            android:width="150dp" />
-
         <View
             android:id="@+id/view4"
             android:layout_width="fill_parent"
@@ -323,6 +308,21 @@
             android:layout_marginTop="15dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="#a51226" />
+
+        <Button
+            android:id="@+id/VerResultadoTimeMania"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/premiacao2"
+            android:layout_below="@+id/acumulado_duplasena"
+            android:layout_marginTop="20dp"
+            android:background="#a51226"
+            android:height="40dp"
+            android:shadowColor="#000000"
+            android:text="@string/buscarResultado"
+            android:textColor="#ffffff"
+            android:width="150dp" />
+        
     </RelativeLayout>
 
 </ScrollView>

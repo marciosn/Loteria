@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import br.com.qx.andetonha.loteria.R;
+import br.com.qx.andetonha.loteria.utils.Utils;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -72,7 +73,6 @@ public class DuplaSenaFragment extends Fragment {
 				false);
 
 		context = getActivity();
-		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		rq = Volley.newRequestQueue(context);
 
 		resultado_concurso_TV = (TextView) view
@@ -108,7 +108,7 @@ public class DuplaSenaFragment extends Fragment {
 		rateio_quadra2_TV = (TextView) view
 				.findViewById(R.id.rateio_quadra2_duplasena);
 
-		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_duplasena);
+		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_duplasena);	
 
 		btn_verResultadosDuplaSena = (Button) view
 				.findViewById(R.id.VerResultadoTimeMania);
@@ -117,28 +117,17 @@ public class DuplaSenaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isOnline()) {
-					getResultados(v);
-				} else {
-					Toast.makeText(context, "Sem conexão com a internet.",
-							Toast.LENGTH_LONG).show();
-				}
+				doIfOnline();
 			}
 		});
+		
+		doIfOnline();
 
 		return view;
 	}
 
-	public boolean isOnline() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetworkInfo = connectivityManager
-				.getActiveNetworkInfo();
-		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-	}
-
-	public void getResultados(View view) {
-
+	public void getResultados() {
+		
 		pDialog = new ProgressDialog(context);
 		pDialog.setMessage("Buscando...");
 		pDialog.show();
@@ -149,6 +138,7 @@ public class DuplaSenaFragment extends Fragment {
 					@Override
 					public void onResponse(String response) {
 						hidePDialog();
+						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
 						Document doc = Jsoup.parse(response);
 
@@ -226,8 +216,7 @@ public class DuplaSenaFragment extends Fragment {
 					@Override
 					public void onErrorResponse(VolleyError error) {
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, error.toString(),
-								Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
 				});
 		int timeout = 10000;
@@ -238,6 +227,14 @@ public class DuplaSenaFragment extends Fragment {
 		request.setTag(TAG);
 		rq.add(request);
 
+	}
+	
+	public void doIfOnline(){
+		if (new Utils(context).isOnline()) {
+			getResultados();
+		} else {
+			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+		}
 	}
 
 	private void hidePDialog() {

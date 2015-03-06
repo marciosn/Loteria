@@ -79,7 +79,7 @@
             android:layout_marginRight="20dp" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/ultima_atualizacao_duplasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/textView1"
+            android:layout_below="@+id/ultima_atualizacao_duplasena"
             android:gravity="center"
             android:text="@string/site_mega_sena"
             android:textAppearance="?android:attr/textAppearanceSmall" />

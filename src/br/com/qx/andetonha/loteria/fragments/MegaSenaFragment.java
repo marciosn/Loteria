@@ -7,11 +7,10 @@ import org.jsoup.select.Elements;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +20,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
+import br.com.qx.andetonha.loteria.utils.Utils;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -50,11 +50,13 @@ public class MegaSenaFragment extends Fragment {
 	private TextView sena_TV;
 	private TextView quina_TV;
 	private TextView quadra_TV;
+	
 	private TextView acumulado_TV;
 
 	private Button btn_verResultadosSena;
 
 	private Context context;
+	private ActionBar actionBar;
 
 	public MegaSenaFragment() {
 	}
@@ -66,7 +68,6 @@ public class MegaSenaFragment extends Fragment {
 				false);
 
 		context = getActivity();
-		getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		rq = Volley.newRequestQueue(context);
 
 		resultado_concurso_TV = (TextView) view
@@ -83,6 +84,7 @@ public class MegaSenaFragment extends Fragment {
 		sena_TV = (TextView) view.findViewById(R.id.sena);
 		quina_TV = (TextView) view.findViewById(R.id.quina);
 		quadra_TV = (TextView) view.findViewById(R.id.quadra);
+		
 		acumulado_TV = (TextView) view.findViewById(R.id.acumulado);
 
 		btn_verResultadosSena = (Button) view
@@ -92,27 +94,16 @@ public class MegaSenaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
-				if (isOnline()) {
-					getResultados(v);
-				} else {
-					Toast.makeText(context, "Sem conexão com a internet.",
-							Toast.LENGTH_LONG).show();
-				}
+				doIfOnline();
 			}
 		});
 
+		doIfOnline();
+		
 		return view;
 	}
 
-	public boolean isOnline() {
-		ConnectivityManager connectivityManager = (ConnectivityManager) context
-				.getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo activeNetworkInfo = connectivityManager
-				.getActiveNetworkInfo();
-		return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-	}
-
-	public void getResultados(View view) {
+	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
 		pDialog.setMessage("Buscando...");
@@ -123,6 +114,7 @@ public class MegaSenaFragment extends Fragment {
 					@Override
 					public void onResponse(String response) {
 						hidePDialog();
+						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
 						Document doc = Jsoup.parse(response);
 
@@ -173,8 +165,7 @@ public class MegaSenaFragment extends Fragment {
 					@Override
 					public void onErrorResponse(VolleyError error) {
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, error.toString(),
-								Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
 				});
 		int timeout = 10000;
@@ -186,6 +177,14 @@ public class MegaSenaFragment extends Fragment {
 		rq.add(request);
 
 	}
+	
+	public void doIfOnline(){
+		if (new Utils(context).isOnline()) {
+			getResultados();
+		} else {
+			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+		}
+	}
 
 	private void hidePDialog() {
 		if (pDialog != null) {
@@ -193,4 +192,5 @@ public class MegaSenaFragment extends Fragment {
 			pDialog = null;
 		}
 	}
+	
 }

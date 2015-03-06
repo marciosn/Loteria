@@ -42,7 +42,6 @@
             android:layout_marginBottom="100dp"
             android:background="#FF6400"
             android:height="40dp"
-            android:onClick="getResultados"
             android:shadowColor="#000000"
             android:text="@string/buscarResultado"
             android:textColor="#ffffff"

@@ -1,9 +1,5 @@
 package br.com.qx.andetonha.loteria;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +7,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Toast;
 import br.com.qx.andetonha.loteria.fragments.DuplaSenaFragment;
 import br.com.qx.andetonha.loteria.fragments.GerarApostasFragment;
 import br.com.qx.andetonha.loteria.fragments.LotoFacilFragment;
@@ -68,7 +63,7 @@ public class Home extends ActionBarActivity implements
 			break;
 		case 1:
 			fragment = new GerarApostasFragment();
-			actionBar.setTitle("Gerar Apostas");
+			actionBar.setTitle("Gerar Palpite");
 			break;
 		case 2:
 			fragment = new MegaSenaFragment();
@@ -126,9 +121,10 @@ public class Home extends ActionBarActivity implements
 			break;
 		}
 	}
-
+	
+	/*
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(Menu menu) {		
 		if (!mNavigationDrawerFragment.isDrawerOpen()) {
 
 			getMenuInflater().inflate(R.menu.home, menu);
@@ -141,9 +137,9 @@ public class Home extends ActionBarActivity implements
 	public boolean onOptionsItemSelected(MenuItem item) {
 
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.atualizar) {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 }

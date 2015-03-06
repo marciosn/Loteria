@@ -3,7 +3,7 @@
     
     <!-- ListView Drawer -->
     <string name="title_section1">Tela Inicial</string>
-    <string name="title_section2">Gerar Aposta</string>
+    <string name="title_section2">Gerar Palpite</string>
     <string name="title_section3">Mega Sena</string>
     <string name="Row_Quina">Quina</string>
     <string name="Row_Loto_Facil">Loto Fácil</string>
@@ -17,7 +17,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-    <string name="gerar_aposta">Gerar Aposta</string>
+    <string name="gerar_aposta">Gerar Palpite</string>
     <string name="ver_resultados">Ver Resultados</string>
     <string name="sena">Sena</string>
     <string name="quina">Quina</string>
@@ -59,11 +59,17 @@
     <string name="time_do_coracao">TIME DO CORAÇÃO</string>
     <string name="time_do_coracao2">Time do coração</string>
     <string name="vazio">#</string>
-    
-    
+    <string name="atualizar">Atualizar</string>
     
     <string name="title_activity_splash">Loteria</string>
     <string name="hello_world">Hello world!</string>
 
     <color name="clouds">#ecf0f1</color>
+    
+    <string name="megasenaTitle">MEGA-SENA</string>
+    <string name="duplasenaTitle">DUPLA SENA</string>
+    <string name="lotofacilTitle">LOTOFÁCIL</string>
+    <string name="quinaTitle">QUINA</string>
+    <string name="timemaniaTitle">TIMEMANIA</string>
+    
 </resources>
