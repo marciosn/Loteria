@@ -31,7 +31,7 @@ public class Home extends ActionBarActivity implements
 	public static final String LOTO_FACIL = "Loto Fácil";
 	public static final String TIMEMANIA= "Timemania";
 	public static final String DUPLA_SENA = "Dupla Sena";
-	public static final String PROXIMOS_SORTEIOS = "Dupla Sena";
+	public static final String PROXIMOS_SORTEIOS = "Próximos Sorteios";
 	public static final String SOBRE = "Sobre";
 	
 	/**
