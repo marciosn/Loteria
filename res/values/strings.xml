@@ -9,6 +9,7 @@
     <string name="Row_Loto_Facil">Loto Fácil</string>
     <string name="Row_Dupla_Sena">Dupla Sena</string>
     <string name="Row_Time_Mania">Time Mania</string>
+    <string name="Row_Proximos_Sorteios">Próximos Sorteios</string>
 
     <string name="hint_aposta">Palpite</string>
     <string name="info_caixa">*Valores fornecidos pela Caixa Econômica Federal</string>
@@ -38,11 +39,11 @@
     <string name="valor_terno">R$ Terno</string>
 
     <!-- Loto Facil -->
-    <string name="acertos15">15 Ac</string>
-    <string name="acertos14">14 Ac</string>
-    <string name="acertos13">13 Ac</string>
-    <string name="acertos12">12 Ac</string>
-    <string name="acertos11">11 Ac</string>
+    <string name="acertos15">15 Acertos</string>
+    <string name="acertos14">14 Acertos</string>
+    <string name="acertos13">13 Acertos</string>
+    <string name="acertos12">12 Acertos</string>
+    <string name="acertos11">11 Acertos</string>
     <string name="R$">R$</string>
     <string name="ganhadores">Ganhadores</string>
     
@@ -71,5 +72,14 @@
     <string name="lotofacilTitle">LOTOFÁCIL</string>
     <string name="quinaTitle">QUINA</string>
     <string name="timemaniaTitle">TIMEMANIA</string>
+    
+    <!-- proximos sorteios -->
+    <string name="proximos_sorteios">Próximos Sorteios</string>
+    
+    
+    <string name="data">Data</string>
+    <string name="concurso">Concurso</string>
+    
+    <string name="sobre">Sobre</string>
     
 </resources>

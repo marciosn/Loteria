@@ -74,7 +74,133 @@ public class TimeManiaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		
+		try {
+			carregarTextView(view);
+			doIfOnline();
+		} catch (Exception e) {
+			Log.e(TAG, e.toString());
+			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+		}
+		return view;
+	}
 
+	public void getResultados() {
+
+		pDialog = new ProgressDialog(context);
+		pDialog.setMessage("Buscando...");
+		pDialog.show();
+
+		StringRequest request = new StringRequest(Request.Method.GET, URL_G1,
+				new Listener<String>() {
+
+					@Override
+					public void onResponse(String response) {
+						hidePDialog();
+						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
+
+						Document doc = Jsoup.parse(response);
+
+						try {
+							numero_concurso_TV.setText(doc.getElementsByClass(
+									"numero-concurso").text()
+									+ " - "
+									+ doc.getElementsByClass("data-concurso")
+											.text());
+							resultado_concurso_TV.setText(doc.getElementsByClass(
+									"resultado-concurso").text());
+							resultado_timeDoCoracao_TV
+									.setText(doc.getElementsByClass(
+											"resultado-time-do-coracao").text());
+
+							String valor_acumulado = doc.getElementsByClass(
+									"valor-acumulado").text();
+							if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
+								acumulou_TV.setText("");
+							} else {
+								acumulou_TV.setText("VALOR ACUMULADO: "
+										+ doc.getElementsByClass("valor-acumulado")
+												.text());
+							}
+
+							Element table = doc.select("table").get(0);
+							Elements rows = table.select("tr");
+							int i;
+							for (i = 0; i < rows.size(); i++) {
+								Element row = rows.get(i);
+								Elements cols = row.select("td");
+
+								if (i == 0) {
+									ganhadores_acertos7_TV.setText(cols.get(1)
+											.text());
+									rateio_acertos7_TV.setText(cols.get(2).text());
+								}
+								if (i == 1) {
+									ganhadores_acertos6_TV.setText(cols.get(1)
+											.text());
+									rateio_acertos6_TV.setText(cols.get(2).text());
+								}
+								if (i == 2) {
+									ganhadores_acertos5_TV.setText(cols.get(1)
+											.text());
+									rateio_acertos5_TV.setText(cols.get(2).text());
+								}
+								if (i == 3) {
+									ganhadores_acertos4_TV.setText(cols.get(1)
+											.text());
+									rateio_acertos4_TV.setText(cols.get(2).text());
+								}
+								if (i == 4) {
+									ganhadores_acertos3_TV.setText(cols.get(1)
+											.text());
+									rateio_acertos3_TV.setText(cols.get(2).text());
+								}
+								if (i == 5) {
+									ganhadores_timeDoCoracao_TV.setText(cols.get(1)
+											.text());
+									rateio_timeDoCoracao_TV.setText(cols.get(2)
+											.text());
+								}
+							}
+						} catch (Exception e) {
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+						}
+					}
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.d(TAG, error.toString());
+						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
+					}
+				});
+		int timeout = 10000;
+		RetryPolicy policy = new DefaultRetryPolicy(timeout,
+				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+		request.setRetryPolicy(policy);
+		request.setTag(TAG);
+		rq.add(request);
+
+	}
+
+	public void doIfOnline(){
+		if (new Utils(context).isOnline()) {
+			getResultados();
+		} else {
+			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+		}
+	}
+	
+	private void hidePDialog() {
+		if (pDialog != null) {
+			pDialog.dismiss();
+			pDialog = null;
+		}
+	}
+	
+	public void carregarTextView(View view){
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso_timemania);
 		numero_concurso_TV = (TextView) view
@@ -122,119 +248,6 @@ public class TimeManiaFragment extends Fragment {
 			}
 		});
 
-		doIfOnline();
-		
-		return view;
-	}
-
-	public void getResultados() {
-
-		pDialog = new ProgressDialog(context);
-		pDialog.setMessage("Buscando...");
-		pDialog.show();
-
-		StringRequest request = new StringRequest(Request.Method.GET, URL_G1,
-				new Listener<String>() {
-
-					@Override
-					public void onResponse(String response) {
-						hidePDialog();
-						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
-
-						Document doc = Jsoup.parse(response);
-
-						numero_concurso_TV.setText(doc.getElementsByClass(
-								"numero-concurso").text()
-								+ " - "
-								+ doc.getElementsByClass("data-concurso")
-										.text());
-						resultado_concurso_TV.setText(doc.getElementsByClass(
-								"resultado-concurso").text());
-						resultado_timeDoCoracao_TV
-								.setText(doc.getElementsByClass(
-										"resultado-time-do-coracao").text());
-
-						String valor_acumulado = doc.getElementsByClass(
-								"valor-acumulado").text();
-						if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
-							acumulou_TV.setText("");
-						} else {
-							acumulou_TV.setText("VALOR ACUMULADO: "
-									+ doc.getElementsByClass("valor-acumulado")
-											.text());
-						}
-
-						Element table = doc.select("table").get(0);
-						Elements rows = table.select("tr");
-						int i;
-						for (i = 0; i < rows.size(); i++) {
-							Element row = rows.get(i);
-							Elements cols = row.select("td");
-
-							if (i == 0) {
-								ganhadores_acertos7_TV.setText(cols.get(1)
-										.text());
-								rateio_acertos7_TV.setText(cols.get(2).text());
-							}
-							if (i == 1) {
-								ganhadores_acertos6_TV.setText(cols.get(1)
-										.text());
-								rateio_acertos6_TV.setText(cols.get(2).text());
-							}
-							if (i == 2) {
-								ganhadores_acertos5_TV.setText(cols.get(1)
-										.text());
-								rateio_acertos5_TV.setText(cols.get(2).text());
-							}
-							if (i == 3) {
-								ganhadores_acertos4_TV.setText(cols.get(1)
-										.text());
-								rateio_acertos4_TV.setText(cols.get(2).text());
-							}
-							if (i == 4) {
-								ganhadores_acertos3_TV.setText(cols.get(1)
-										.text());
-								rateio_acertos3_TV.setText(cols.get(2).text());
-							}
-							if (i == 5) {
-								ganhadores_timeDoCoracao_TV.setText(cols.get(1)
-										.text());
-								rateio_timeDoCoracao_TV.setText(cols.get(2)
-										.text());
-							}
-						}
-					}
-				}, new Response.ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
-					}
-				});
-		int timeout = 10000;
-		RetryPolicy policy = new DefaultRetryPolicy(timeout,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-		request.setRetryPolicy(policy);
-		request.setTag(TAG);
-		rq.add(request);
-
-	}
-
-	public void doIfOnline(){
-		if (new Utils(context).isOnline()) {
-			getResultados();
-		} else {
-			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
-		}
-	}
-	
-	private void hidePDialog() {
-		if (pDialog != null) {
-			pDialog.dismiss();
-			pDialog = null;
-		}
 	}
 
 }

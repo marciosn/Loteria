@@ -15,13 +15,25 @@ import br.com.qx.andetonha.loteria.fragments.DuplaSenaFragment;
 import br.com.qx.andetonha.loteria.fragments.GerarApostasFragment;
 import br.com.qx.andetonha.loteria.fragments.LotoFacilFragment;
 import br.com.qx.andetonha.loteria.fragments.MegaSenaFragment;
+import br.com.qx.andetonha.loteria.fragments.ProximosSorteiosFragment;
 import br.com.qx.andetonha.loteria.fragments.QuinaFragment;
+import br.com.qx.andetonha.loteria.fragments.SobreNos;
 import br.com.qx.andetonha.loteria.fragments.TelaInicial;
 import br.com.qx.andetonha.loteria.fragments.TimeManiaFragment;
 
 public class Home extends ActionBarActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
-
+	
+	public static final String LOTERIA = "Loteria";
+	public static final String GERAR_PALPITE = "Gerar Palpite";
+	public static final String MEGA_SENA = "Mega Sena";
+	public static final String QUINA = "Quina";
+	public static final String LOTO_FACIL = "Loto Fácil";
+	public static final String TIMEMANIA= "Timemania";
+	public static final String DUPLA_SENA = "Dupla Sena";
+	public static final String PROXIMOS_SORTEIOS = "Dupla Sena";
+	public static final String SOBRE = "Sobre";
+	
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -34,6 +46,7 @@ public class Home extends ActionBarActivity implements
 	 */
 	private CharSequence mTitle;
 	private ActionBar actionBar;
+	private FragmentManager fragmentManager;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,46 +66,51 @@ public class Home extends ActionBarActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		Fragment fragment = null;
+		fragmentManager = getSupportFragmentManager();
+		
 		actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
+		
 		switch (position) {
 		case 0:
-			fragment = new TelaInicial();
-			actionBar.setTitle("Loteria");
+			fragment = new TelaInicial(fragmentManager, actionBar);
+			actionBar.setTitle(LOTERIA);
 			break;
 		case 1:
 			fragment = new GerarApostasFragment();
-			actionBar.setTitle("Gerar Palpite");
+			actionBar.setTitle(GERAR_PALPITE);
 			break;
 		case 2:
 			fragment = new MegaSenaFragment();
-			actionBar.setTitle("Mega Sena");
+			actionBar.setTitle(MEGA_SENA);
 			break;
 		case 3:
 			fragment = new QuinaFragment();
-			actionBar.setTitle("Quina");
+			actionBar.setTitle(QUINA);
 			break;
 		case 4:
 			fragment = new LotoFacilFragment();
-			actionBar.setTitle("Loto Fácil");
+			actionBar.setTitle(LOTO_FACIL);
 			break;
 		case 5:
 			fragment = new DuplaSenaFragment();
-			actionBar.setTitle("Dupla Sena");
+			actionBar.setTitle(DUPLA_SENA);
 			break;
 		case 6:
 			fragment = new TimeManiaFragment();
-			actionBar.setTitle("Time Mania");
+			actionBar.setTitle(TIMEMANIA);
+			break;
+		case 7:
+			fragment = new ProximosSorteiosFragment();
+			actionBar.setTitle(PROXIMOS_SORTEIOS);
 			break;
 		}
 
 		if (fragment != null) {
-			FragmentManager fragmentManager = getSupportFragmentManager();
-			fragmentManager.beginTransaction()
-					.replace(R.id.container, fragment).commit();
+			fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
 		} else {
-			Log.e("ERROR FRAGMENT", "FALHOU");
+			Log.e("ERROR FRAGMENT", "Desculpe, ocorreu um problema!");
 		}
 	}
 
@@ -122,7 +140,7 @@ public class Home extends ActionBarActivity implements
 		}
 	}
 	
-	/*
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {		
 		if (!mNavigationDrawerFragment.isDrawerOpen()) {
@@ -135,11 +153,20 @@ public class Home extends ActionBarActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-
+		actionBar = getSupportActionBar();
 		int id = item.getItemId();
-		if (id == R.id.atualizar) {
+		if (id == R.id.action_settings) {
+			try {
+				fragmentManager = getSupportFragmentManager();
+				fragmentManager.beginTransaction().replace(R.id.container, new SobreNos()).commit();
+				actionBar.setTitle(SOBRE);
+			} catch (Exception e) {
+				Log.e("HOME", "onOptionsItemSelected "+e.toString());
+				Toast.makeText(this, "Ops!, temos um problema técnico!", Toast.LENGTH_LONG).show();
+			}
+			
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-	}*/
+	}
 }

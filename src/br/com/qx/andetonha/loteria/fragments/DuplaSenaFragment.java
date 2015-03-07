@@ -74,6 +74,143 @@ public class DuplaSenaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		
+		try {
+			carregarTextView(view);
+			doIfOnline();
+		} catch (Exception e) {
+			Log.e(TAG, e.toString());
+			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+		}
+		return view;
+	}
+
+	public void getResultados() {
+		
+		pDialog = new ProgressDialog(context);
+		pDialog.setMessage("Buscando...");
+		pDialog.show();
+
+		StringRequest request = new StringRequest(Request.Method.GET, URL_G1,
+				new Listener<String>() {
+
+					@Override
+					public void onResponse(String response) {
+						hidePDialog();
+						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
+
+						Document doc = Jsoup.parse(response);
+
+						try {
+							numero_concurso_TV.setText(doc.getElementsByClass(
+									"numero-concurso").text()
+									+ " - "
+									+ doc.getElementsByClass("data-concurso")
+											.text());
+							resultado_concurso_TV.setText("1º Sorteio - "
+									+ doc.getElementsByClass("resultado-concurso")
+											.get(0).text()
+									+ "\n"
+									+ "2º Sorteio - "
+									+ doc.getElementsByClass("resultado-concurso")
+											.get(1).text());
+
+							String valor_acumulado = doc
+									.getElementsByClass("valor-acumulado").get(0)
+									.text();
+							if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
+								acumulado_TV.setText("");
+							} else {
+								acumulado_TV.setText("VALOR ACUMULADO: "
+										+ doc.getElementsByClass("valor-acumulado")
+												.text());
+							}
+
+							Element table = doc.select("table").get(0);
+							Elements rows = table.select("tr");
+							int i;
+							for (i = 0; i < rows.size(); i++) {
+								Element row = rows.get(i);
+								Elements cols = row.select("td");
+
+								if (i == 0) {
+									ganhadores_sena1_TV.setText(cols.get(1).text());
+									rateio_sena1_TV.setText(cols.get(2).text());
+								}
+								if (i == 1) {
+									ganhadores_quina1_TV
+											.setText(cols.get(1).text());
+									rateio_quina1_TV.setText(cols.get(2).text());
+								} else if (i == 2) {
+									ganhadores_quadra1_TV.setText(cols.get(1)
+											.text());
+									rateio_quadra1_TV.setText(cols.get(2).text());
+								}
+							}
+
+							Element table2 = doc.select("table").get(1);
+							Elements rows2 = table2.select("tr");
+							int j;
+							for (j = 0; j < rows2.size(); j++) {
+								Element row = rows2.get(j);
+								Elements cols = row.select("td");
+
+								if (j == 0) {
+									ganhadores_sena2_TV.setText(cols.get(1).text());
+									rateio_sena2_TV.setText(cols.get(2).text());
+								}
+								if (j == 1) {
+									ganhadores_quina2_TV
+											.setText(cols.get(1).text());
+									rateio_quina2_TV.setText(cols.get(2).text());
+								} else if (j == 2) {
+									ganhadores_quadra2_TV.setText(cols.get(1)
+											.text());
+									rateio_quadra2_TV.setText(cols.get(2).text());
+								}
+							}
+						} catch (Exception e) {
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+						}
+						
+
+
+					}
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						Log.d(TAG, error.toString());
+						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
+					}
+				});
+		int timeout = 10000;
+		RetryPolicy policy = new DefaultRetryPolicy(timeout,
+				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+		request.setRetryPolicy(policy);
+		request.setTag(TAG);
+		rq.add(request);
+
+	}
+	
+	public void doIfOnline(){
+		if (new Utils(context).isOnline()) {
+			getResultados();
+		} else {
+			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
+		}
+	}
+
+	private void hidePDialog() {
+		if (pDialog != null) {
+			pDialog.dismiss();
+			pDialog = null;
+		}
+	}
+	
+	public void carregarTextView(View view){
 
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso_timemania);
@@ -120,128 +257,6 @@ public class DuplaSenaFragment extends Fragment {
 				doIfOnline();
 			}
 		});
-		
-		doIfOnline();
-
-		return view;
-	}
-
-	public void getResultados() {
-		
-		pDialog = new ProgressDialog(context);
-		pDialog.setMessage("Buscando...");
-		pDialog.show();
-
-		StringRequest request = new StringRequest(Request.Method.GET, URL_G1,
-				new Listener<String>() {
-
-					@Override
-					public void onResponse(String response) {
-						hidePDialog();
-						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
-
-						Document doc = Jsoup.parse(response);
-
-						numero_concurso_TV.setText(doc.getElementsByClass(
-								"numero-concurso").text()
-								+ " - "
-								+ doc.getElementsByClass("data-concurso")
-										.text());
-						resultado_concurso_TV.setText("1º Sorteio - "
-								+ doc.getElementsByClass("resultado-concurso")
-										.get(0).text()
-								+ "\n"
-								+ "2º Sorteio - "
-								+ doc.getElementsByClass("resultado-concurso")
-										.get(1).text());
-
-						String valor_acumulado = doc
-								.getElementsByClass("valor-acumulado").get(0)
-								.text();
-						if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
-							acumulado_TV.setText("");
-						} else {
-							acumulado_TV.setText("VALOR ACUMULADO: "
-									+ doc.getElementsByClass("valor-acumulado")
-											.text());
-						}
-
-						Element table = doc.select("table").get(0);
-						Elements rows = table.select("tr");
-						int i;
-						for (i = 0; i < rows.size(); i++) {
-							Element row = rows.get(i);
-							Elements cols = row.select("td");
-
-							if (i == 0) {
-								ganhadores_sena1_TV.setText(cols.get(1).text());
-								rateio_sena1_TV.setText(cols.get(2).text());
-							}
-							if (i == 1) {
-								ganhadores_quina1_TV
-										.setText(cols.get(1).text());
-								rateio_quina1_TV.setText(cols.get(2).text());
-							} else if (i == 2) {
-								ganhadores_quadra1_TV.setText(cols.get(1)
-										.text());
-								rateio_quadra1_TV.setText(cols.get(2).text());
-							}
-						}
-
-						Element table2 = doc.select("table").get(1);
-						Elements rows2 = table2.select("tr");
-						int j;
-						for (j = 0; j < rows2.size(); j++) {
-							Element row = rows2.get(j);
-							Elements cols = row.select("td");
-
-							if (j == 0) {
-								ganhadores_sena2_TV.setText(cols.get(1).text());
-								rateio_sena2_TV.setText(cols.get(2).text());
-							}
-							if (j == 1) {
-								ganhadores_quina2_TV
-										.setText(cols.get(1).text());
-								rateio_quina2_TV.setText(cols.get(2).text());
-							} else if (j == 2) {
-								ganhadores_quadra2_TV.setText(cols.get(1)
-										.text());
-								rateio_quadra2_TV.setText(cols.get(2).text());
-							}
-						}
-
-					}
-				}, new Response.ErrorListener() {
-
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
-					}
-				});
-		int timeout = 10000;
-		RetryPolicy policy = new DefaultRetryPolicy(timeout,
-				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-		request.setRetryPolicy(policy);
-		request.setTag(TAG);
-		rq.add(request);
-
-	}
-	
-	public void doIfOnline(){
-		if (new Utils(context).isOnline()) {
-			getResultados();
-		} else {
-			Toast.makeText(context, "Sem conexão com a internet.", Toast.LENGTH_LONG).show();
-		}
-	}
-
-	private void hidePDialog() {
-		if (pDialog != null) {
-			pDialog.dismiss();
-			pDialog = null;
-		}
 	}
 
 }

@@ -62,37 +62,15 @@ public class QuinaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
-
-		resultado_concurso_TV = (TextView) view
-				.findViewById(R.id.resultado_concurso_Quina);
-		numero_concurso_TV = (TextView) view
-				.findViewById(R.id.numero_concurso_Quina);
-		ganhadores_quina_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quina_Quina);
-		ganhadores_quadra_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quadra_Quina);
-		ganhadores_terno_TV = (TextView) view
-				.findViewById(R.id.ganhadores_terno_Quina);
-
-		rateio_quina_TV = (TextView) view.findViewById(R.id.rateio_quina_Quina);
-		rateio_quadra_TV = (TextView) view
-				.findViewById(R.id.rateio_quadra_Quina);
-		rateio_terno_TV = (TextView) view.findViewById(R.id.rateio_terno_Quina);
-		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_quina);
-
-		btn_verResultadosSena = (Button) view
-				.findViewById(R.id.VerResultadoQuina);
-
-		btn_verResultadosSena.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				doIfOnline();
-			}
-		});
-
-		doIfOnline();
 		
+		try {
+			carregarTextView(view);
+			doIfOnline();
+		} catch (Exception e) {
+			Log.e(TAG, e.toString());
+			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+		}
+
 		return view;
 	}
 
@@ -112,43 +90,48 @@ public class QuinaFragment extends Fragment {
 
 						Document doc = Jsoup.parse(response);
 
-						numero_concurso_TV.setText(doc.getElementsByClass(
-								"numero-concurso").text()
-								+ " - "
-								+ doc.getElementsByClass("data-concurso")
-										.text());
-						resultado_concurso_TV.setText(doc.getElementsByClass(
-								"resultado-concurso").text());
-
-						String valor_acumulado = doc.getElementsByClass(
-								"valor-acumulado").text();
-						if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
-							acumulado_TV.setText("");
-						} else {
-							acumulado_TV.setText("VALOR ACUMULADO: "
-									+ doc.getElementsByClass("valor-acumulado")
+						try {
+							numero_concurso_TV.setText(doc.getElementsByClass(
+									"numero-concurso").text()
+									+ " - "
+									+ doc.getElementsByClass("data-concurso")
 											.text());
-						}
+							resultado_concurso_TV.setText(doc.getElementsByClass(
+									"resultado-concurso").text());
 
-						Element table = doc.select("table").get(0);
-						Elements rows = table.select("tr");
-						int i;
-						for (i = 0; i < rows.size(); i++) {
-							Element row = rows.get(i);
-							Elements cols = row.select("td");
+							String valor_acumulado = doc.getElementsByClass(
+									"valor-acumulado").text();
+							if (valor_acumulado.equalsIgnoreCase("R$ 0,00")) {
+								acumulado_TV.setText("");
+							} else {
+								acumulado_TV.setText("VALOR ACUMULADO: "
+										+ doc.getElementsByClass("valor-acumulado")
+												.text());
+							}
 
-							if (i == 0) {
-								ganhadores_quina_TV.setText(cols.get(1).text());
-								rateio_quina_TV.setText(cols.get(2).text());
+							Element table = doc.select("table").get(0);
+							Elements rows = table.select("tr");
+							int i;
+							for (i = 0; i < rows.size(); i++) {
+								Element row = rows.get(i);
+								Elements cols = row.select("td");
+
+								if (i == 0) {
+									ganhadores_quina_TV.setText(cols.get(1).text());
+									rateio_quina_TV.setText(cols.get(2).text());
+								}
+								if (i == 1) {
+									ganhadores_quadra_TV
+											.setText(cols.get(1).text());
+									rateio_quadra_TV.setText(cols.get(2).text());
+								} else if (i == 2) {
+									ganhadores_terno_TV.setText(cols.get(1).text());
+									rateio_terno_TV.setText(cols.get(2).text());
+								}
 							}
-							if (i == 1) {
-								ganhadores_quadra_TV
-										.setText(cols.get(1).text());
-								rateio_quadra_TV.setText(cols.get(2).text());
-							} else if (i == 2) {
-								ganhadores_terno_TV.setText(cols.get(1).text());
-								rateio_terno_TV.setText(cols.get(2).text());
-							}
+						} catch (Exception e) {
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 						}
 
 					}
@@ -185,4 +168,33 @@ public class QuinaFragment extends Fragment {
 		}
 	}
 
+	public void carregarTextView(View view){
+		resultado_concurso_TV = (TextView) view
+				.findViewById(R.id.resultado_concurso_Quina);
+		numero_concurso_TV = (TextView) view
+				.findViewById(R.id.numero_concurso_Quina);
+		ganhadores_quina_TV = (TextView) view
+				.findViewById(R.id.ganhadores_quina_Quina);
+		ganhadores_quadra_TV = (TextView) view
+				.findViewById(R.id.ganhadores_quadra_Quina);
+		ganhadores_terno_TV = (TextView) view
+				.findViewById(R.id.ganhadores_terno_Quina);
+
+		rateio_quina_TV = (TextView) view.findViewById(R.id.rateio_quina_Quina);
+		rateio_quadra_TV = (TextView) view
+				.findViewById(R.id.rateio_quadra_Quina);
+		rateio_terno_TV = (TextView) view.findViewById(R.id.rateio_terno_Quina);
+		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_quina);
+
+		btn_verResultadosSena = (Button) view
+				.findViewById(R.id.VerResultadoQuina);
+
+		btn_verResultadosSena.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				doIfOnline();
+			}
+		});
+	}
 }

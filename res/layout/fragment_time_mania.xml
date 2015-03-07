@@ -295,7 +295,8 @@
             android:layout_alignParentRight="true"
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
+            android:textColor="#FF6400"
+            android:layout_marginBottom="5dp" />
 
     </RelativeLayout>
 
