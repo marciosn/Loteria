@@ -31,6 +31,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +43,9 @@ public class DuplaSenaFragment extends Fragment {
 	public static final String URL_G1 = "http://g1.globo.com/loterias/duplasena.html";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
+	
+	private RelativeLayout relativeLayout;
+	private LinearLayout linearLayout;
 
 	private TextView numero_concurso_TV;
 	private TextView resultado_concurso_TV;
@@ -61,7 +67,7 @@ public class DuplaSenaFragment extends Fragment {
 
 	private TextView acumulado_TV;
 
-	private Button btn_verResultadosDuplaSena;
+	private ImageButton btn_verResultadosDuplaSena;
 
 	public DuplaSenaFragment() {
 	}
@@ -77,6 +83,7 @@ public class DuplaSenaFragment extends Fragment {
 		
 		try {
 			carregarTextView(view);
+			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -96,6 +103,7 @@ public class DuplaSenaFragment extends Fragment {
 
 					@Override
 					public void onResponse(String response) {
+						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
@@ -170,6 +178,7 @@ public class DuplaSenaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
 							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 						}
@@ -181,6 +190,7 @@ public class DuplaSenaFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
@@ -211,44 +221,32 @@ public class DuplaSenaFragment extends Fragment {
 	}
 	
 	public void carregarTextView(View view){
+		
+		relativeLayout = (RelativeLayout) view.findViewById(R.id.Layout_duplasena);
+		linearLayout = (LinearLayout) view.findViewById(R.id.errorDuplaSena);
 
-		resultado_concurso_TV = (TextView) view
-				.findViewById(R.id.resultado_concurso_timemania);
-		numero_concurso_TV = (TextView) view
-				.findViewById(R.id.numero_concurso_timemania);
+		resultado_concurso_TV = (TextView) view.findViewById(R.id.resultadoConcursoDuplaSena);
+		numero_concurso_TV = (TextView) view.findViewById(R.id.numero_concursoDuplaSena);
 
-		ganhadores_sena1_TV = (TextView) view
-				.findViewById(R.id.ganhadores_sena_duplasena);
-		ganhadores_quina1_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quina_duplasena);
-		ganhadores_quadra1_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quadra_duplasena);
+		ganhadores_sena1_TV = (TextView) view.findViewById(R.id.ganhadores_sena_duplasena);
+		ganhadores_quina1_TV = (TextView) view.findViewById(R.id.ganhadores_quina_duplasena);
+		ganhadores_quadra1_TV = (TextView) view.findViewById(R.id.ganhadores_quadra_duplasena);
 
-		ganhadores_sena2_TV = (TextView) view
-				.findViewById(R.id.ganhadores_sena2_duplasena);
-		ganhadores_quina2_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quina2_duplasena);
-		ganhadores_quadra2_TV = (TextView) view
-				.findViewById(R.id.ganhadores_quadra2_duplasena);
+		ganhadores_sena2_TV = (TextView) view.findViewById(R.id.ganhadores_sena2_duplasena);
+		ganhadores_quina2_TV = (TextView) view.findViewById(R.id.ganhadores_quina2_duplasena);
+		ganhadores_quadra2_TV = (TextView) view.findViewById(R.id.ganhadores_quadra2_duplasena);
 
-		rateio_sena1_TV = (TextView) view
-				.findViewById(R.id.rateio_sena_duplasena);
-		rateio_quina1_TV = (TextView) view
-				.findViewById(R.id.rateio_quina_duplasena);
-		rateio_quadra1_TV = (TextView) view
-				.findViewById(R.id.rateio_quadra_duplasena);
-
-		rateio_sena2_TV = (TextView) view
-				.findViewById(R.id.rateio_sena2_duplasena);
-		rateio_quina2_TV = (TextView) view
-				.findViewById(R.id.rateio_quina2_duplasena);
-		rateio_quadra2_TV = (TextView) view
-				.findViewById(R.id.rateio_quadra2_duplasena);
+		rateio_sena1_TV = (TextView) view.findViewById(R.id.rateio_sena_duplasena);
+		rateio_quina1_TV = (TextView) view.findViewById(R.id.rateio_quina_duplasena);
+		rateio_quadra1_TV = (TextView) view.findViewById(R.id.rateio_quadra_duplasena);
+		
+		rateio_sena2_TV = (TextView) view.findViewById(R.id.rateio_sena2_duplasena);
+		rateio_quina2_TV = (TextView) view.findViewById(R.id.rateio_quina2_duplasena);
+		rateio_quadra2_TV = (TextView) view.findViewById(R.id.rateio_quadra2_duplasena);
 
 		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_duplasena);	
 
-		btn_verResultadosDuplaSena = (Button) view
-				.findViewById(R.id.VerResultadoTimeMania);
+		btn_verResultadosDuplaSena = (ImageButton) view.findViewById(R.id.VerResultadoDuplaSena);
 
 		btn_verResultadosDuplaSena.setOnClickListener(new OnClickListener() {
 

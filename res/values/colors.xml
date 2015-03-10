@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="genre">#666666</color>
+    <color name="year">#888888</color>
+    <color name="list_row_start_color">#ffffff</color>
+    <color name="list_row_end_color">#ffffff</color>
+    <color name="list_row_hover_start_color">#ebeef0</color>
+    <color name="list_row_hover_end_color">#ebeef0</color>
+    <color name="black_overlay">#7f8c8d</color>
+    <color name="list_item_title">#d7ddee</color>
+    <color name="list_background">#1a1b1d</color>
+    <color name="list_background_pressed">#131315</color>
+    <color name="list_divider">#cccccc</color>
+    <color name="counter_text_bg">#626262</color>
+    <color name="counter_text_color">#c5c4c4</color>
+    <color name="black">#000000</color>
+    <color name="grid_bg">#000000</color>
+    <color name="grid_item_bg">#1a1b1d</color>
+    <color name="action_bar">#141416</color>
+    <color name="action_bar_title">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="settings_label">#323232</color>
+    <color name="background_telas_jogos">#D4D8D9</color>
+    <color name="btn_refresh">#2ecc71</color>
+    <color name="verde_escuro">#27ae60</color>
+    <color name="error">#FF3030</color>
+    
+    <color name="cor_lotofacil">#8e44ad</color>
+    <color name="cor_megasena">#2ecc71</color>
+    <color name="cor_quina">#2980b9</color>
+	<color name="cor_timemania">#2ecc71</color>
+	<color name="cor_duplasena">#e74c3c</color>
+	
+</resources>

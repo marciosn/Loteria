@@ -2,164 +2,170 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#ffffff" >
-
+    android:background="@color/black" >
+    
     <RelativeLayout
+        android:id="@+id/proximos_sorteios_layout"
         android:layout_width="match_parent"
-        android:layout_height="510dp" >
+        android:layout_height="570dp"
+        android:layout_marginTop="@dimen/spaces"
+        android:layout_marginLeft="@dimen/spaces"
+        android:layout_marginRight="@dimen/spaces" >
 
-        <TextView
-            android:id="@+id/concurso_megasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <RelativeLayout
+            android:id="@+id/Layout_duplasenaps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/Layout_megasenaps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/content" >
+
+            <TextView
+                android:id="@+id/proximo_concurso_duplasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageView2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/cor_duplasena"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_duplasena_gde" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Layout_lotofacilps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/Layout_duplasenaps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/content" >
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_lotofacil_gde" />
+
+            <TextView
+                android:id="@+id/proximo_concurso_lotofacil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageView3"
+                android:textColor="@color/cor_lotofacil"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Layout_quinaps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/Layout_lotofacilps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/content" >
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_quina_gde" />
+
+            <TextView
+                android:id="@+id/proximo_concurso_quina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageView4"
+                android:textColor="@color/cor_quina"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Layout_timemaniaps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@+id/Layout_quinaps"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/content" >
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_timemania_gde" />
+
+            <TextView
+                android:id="@+id/proximo_concurso_timemania"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageView5"
+                android:textColor="@color/cor_timemania"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/Layout_megasenaps"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:text="@string/proximos_sorteios"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#009933"
-            android:textStyle="bold" />
+            android:background="@drawable/content"
+            android:layout_marginTop="15dp" >
 
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/concurso_megasena"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="28dp"
-            android:src="@drawable/logo_megasena_gde" />
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_megasena_gde" />
 
-        <TextView
-            android:id="@+id/proximo_concurso_megasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/imageView1"
-            android:gravity="center"
-            android:text="@string/data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#27ae60" />
+            <TextView
+                android:id="@+id/proximo_concurso_megasena"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/imageView1"
+                android:gravity="center"
+                android:textColor="@color/cor_megasena"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <View
-            android:id="@+id/view1"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/proximo_concurso_megasena"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:background="#F5F5F5" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/proximo_concurso_duplasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/logo_duplasena"
-            android:gravity="center"
-            android:text="@string/data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#c0392b" />
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/proximo_concurso_duplasena"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:background="#F5F5F5" />
-
-        <TextView
-            android:id="@+id/proximo_concurso_lotofacil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/proximo_concurso_duplasena"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/logo_lotofacil"
-            android:gravity="center"
-            android:text="@string/data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#9b59b6" />
-
-        <View
-            android:id="@+id/view3"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/proximo_concurso_lotofacil"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:background="#F5F5F5" />
-
-        <TextView
-            android:id="@+id/proximo_concurso_quina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/proximo_concurso_lotofacil"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/logo_quina"
-            android:gravity="center"
-            android:text="@string/data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#030672" />
-
-        <View
-            android:id="@+id/view4"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_below="@+id/proximo_concurso_quina"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:background="#F5F5F5" />
-
-        <TextView
-            android:id="@+id/proximo_concurso_timemania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/logo_timemania"
-            android:gravity="center"
-            android:text="@string/data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#41BA00" />
-
-        <ImageView
-            android:id="@+id/logo_duplasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/imageView1"
-            android:layout_below="@+id/view1"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/logo_duplasena_gde" />
-
-        <ImageView
-            android:id="@+id/logo_lotofacil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/logo_duplasena"
-            android:layout_below="@+id/view2"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/logo_lotofacil_gde" />
-
-        <ImageView
-            android:id="@+id/logo_quina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/logo_lotofacil"
-            android:layout_below="@+id/view3"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/logo_quina_gde" />
-
-        <ImageView
-            android:id="@+id/logo_timemania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/logo_quina"
-            android:layout_below="@+id/view4"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/logo_timemania_gde" />
     </RelativeLayout>
 
 </ScrollView>

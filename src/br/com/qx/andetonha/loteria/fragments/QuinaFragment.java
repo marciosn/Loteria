@@ -18,6 +18,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
@@ -49,8 +52,10 @@ public class QuinaFragment extends Fragment {
 	private TextView rateio_quina_TV;
 	private TextView rateio_quadra_TV;
 	private TextView acumulado_TV;
-
-	private Button btn_verResultadosSena;
+	
+	private RelativeLayout relativeLayout;
+	private LinearLayout linearLayout;
+	private ImageButton btn_verResultadosSena;
 
 	public QuinaFragment() {
 	}
@@ -65,6 +70,7 @@ public class QuinaFragment extends Fragment {
 		
 		try {
 			carregarTextView(view);
+			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -85,6 +91,7 @@ public class QuinaFragment extends Fragment {
 
 					@Override
 					public void onResponse(String response) {
+						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
@@ -130,6 +137,7 @@ public class QuinaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
 							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 						}
@@ -139,6 +147,7 @@ public class QuinaFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
@@ -169,6 +178,10 @@ public class QuinaFragment extends Fragment {
 	}
 
 	public void carregarTextView(View view){
+		
+		relativeLayout = (RelativeLayout) view.findViewById(R.id.Layout_principal_quina);
+		linearLayout = (LinearLayout) view.findViewById(R.id.error_quina);
+		
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso_Quina);
 		numero_concurso_TV = (TextView) view
@@ -186,7 +199,7 @@ public class QuinaFragment extends Fragment {
 		rateio_terno_TV = (TextView) view.findViewById(R.id.rateio_terno_Quina);
 		acumulado_TV = (TextView) view.findViewById(R.id.acumulado_quina);
 
-		btn_verResultadosSena = (Button) view
+		btn_verResultadosSena = (ImageButton) view
 				.findViewById(R.id.VerResultadoQuina);
 
 		btn_verResultadosSena.setOnClickListener(new OnClickListener() {

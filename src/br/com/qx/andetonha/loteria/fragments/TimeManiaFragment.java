@@ -30,6 +30,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,10 +61,12 @@ public class TimeManiaFragment extends Fragment {
 	private TextView rateio_acertos4_TV;
 	private TextView rateio_acertos3_TV;
 	private TextView rateio_timeDoCoracao_TV;
-
+	
+	private RelativeLayout relativeLayout;
+	private LinearLayout linearLayout;
 	private TextView acumulou_TV;
 
-	private Button btn_verResultadosTimeMania;
+	private ImageButton btn_verResultadosTimeMania;
 
 	public TimeManiaFragment() {
 	}
@@ -77,6 +82,7 @@ public class TimeManiaFragment extends Fragment {
 		
 		try {
 			carregarTextView(view);
+			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -96,6 +102,7 @@ public class TimeManiaFragment extends Fragment {
 
 					@Override
 					public void onResponse(String response) {
+						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
@@ -171,11 +178,12 @@ public class TimeManiaFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
 				});
-		int timeout = 10000;
+		int timeout = 30000;
 		RetryPolicy policy = new DefaultRetryPolicy(timeout,
 				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -201,6 +209,10 @@ public class TimeManiaFragment extends Fragment {
 	}
 	
 	public void carregarTextView(View view){
+		
+		relativeLayout = (RelativeLayout) view.findViewById(R.id.Layout_timemania);
+		linearLayout = (LinearLayout) view.findViewById(R.id.error_timemania);
+		
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso_timemania);
 		numero_concurso_TV = (TextView) view
@@ -237,8 +249,16 @@ public class TimeManiaFragment extends Fragment {
 
 		acumulou_TV = (TextView) view.findViewById(R.id.acumulou_timemania);
 
-		btn_verResultadosTimeMania = (Button) view
+		btn_verResultadosTimeMania = (ImageButton) view
 				.findViewById(R.id.VerResultadoTimeMania);
+		
+		linearLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				getResultados();
+			}
+		});
 
 		btn_verResultadosTimeMania.setOnClickListener(new OnClickListener() {
 

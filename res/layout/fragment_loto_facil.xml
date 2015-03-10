@@ -2,247 +2,352 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/clouds" >
+    android:background="@color/background_telas_jogos"
+    android:scrollbars="none" >
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin" >
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:paddingLeft="@dimen/content"
+        android:paddingRight="@dimen/content" >
 
-    <TextView
-        android:id="@+id/numero_concurso_LotoFacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/concurso_data"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#920888" />
+        <RelativeLayout
+            android:id="@+id/Layout_lotofacil"
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            android:paddingLeft="@dimen/content"
+            android:paddingRight="@dimen/content" >
 
-    <TextView
-        android:id="@+id/resultado_concurso_LotoFacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/numero_concurso_LotoFacil"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="3dp"
-        android:text="@string/resultado"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#920888"
-        android:textStyle="bold" />
+            <RelativeLayout
+                android:id="@+id/layout_lotofacil1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/content"
+                android:layout_marginRight="@dimen/content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/content5"
+                android:gravity="center"
+                android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/sena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/resultado_concurso_LotoFacil"
-        android:layout_marginTop="44dp"
-        android:text="@string/acertos15"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/resultado_concurso_LotoFacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
 
-    <TextView
-        android:id="@+id/ganhadores_acertos15_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sena"
-        android:layout_alignBottom="@+id/sena"
-        android:layout_centerHorizontal="true"
-        android:text="@string/ganhadores"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+            <RelativeLayout
+                android:id="@+id/layout_lotofacil"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_below="@+id/layout_lotofacil1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/content"
+                android:layout_marginRight="@dimen/content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/content2">
 
-    <TextView
-        android:id="@+id/rateio_acertos15_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ganhadores_acertos15_lotofacil"
-        android:layout_alignParentRight="true"
-        android:text="@string/R$"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/numero_concurso_LotoFacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/ganhadores_acertos14_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/quina"
-        android:layout_alignRight="@+id/ganhadores_acertos15_lotofacil"
-        android:text="@string/ganhadores"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/concurso_duplasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/numero_concurso_LotoFacil"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/rateio_acertos14_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ganhadores_acertos14_lotofacil"
-        android:layout_alignBottom="@+id/ganhadores_acertos14_lotofacil"
-        android:layout_alignRight="@+id/rateio_acertos15_lotofacil"
-        android:text="@string/R$"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/premio_duplasenaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_duplasena"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos15"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/ganhadores_acertos13_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/quadra"
-        android:layout_alignBottom="@+id/quadra"
-        android:layout_alignRight="@+id/ganhadores_acertos14_lotofacil"
-        android:text="@string/ganhadores"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/rateio_acertos15_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_acertos15_lotofacil"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/rateio_acertos13_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ganhadores_acertos13_lotofacil"
-        android:layout_alignRight="@+id/rateio_acertos14_lotofacil"
-        android:text="@string/R$"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_duplasenaLabel"
+                    android:layout_below="@+id/premio_duplasenaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="fill_parent"
-        android:layout_height="2px"
-        android:layout_above="@+id/ganhadores_acertos15_lotofacil"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="10dp"
-        android:background="#920888" />
+                <TextView
+                    android:id="@+id/ganhadores_acertos15_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/quina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sena"
-        android:layout_below="@+id/sena"
-        android:text="@string/acertos14"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/concurso_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view1"
+                    android:layout_below="@+id/view1"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos14"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/quadra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/quina"
-        android:layout_below="@+id/quina"
-        android:text="@string/acertos13"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/rateio_acertos14_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_acertos14_lotofacil"
+                    android:layout_alignBottom="@+id/ganhadores_acertos14_lotofacil"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/sena2_duplasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/quadra"
-        android:layout_below="@+id/quadra"
-        android:text="@string/acertos12"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/ganhadores_acertos14_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/concurso_quina"
+                    android:layout_alignBottom="@+id/concurso_quina"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/rateio_acertos12_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ganhadores_acertos12_lotofacil"
-        android:layout_alignBottom="@+id/ganhadores_acertos12_lotofacil"
-        android:layout_alignParentRight="true"
-        android:text="@string/R$"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_quina"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
 
-    <TextView
-        android:id="@+id/ganhadores_acertos12_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sena2_duplasena"
-        android:layout_alignBottom="@+id/sena2_duplasena"
-        android:layout_alignLeft="@+id/ganhadores_acertos13_lotofacil"
-        android:text="@string/ganhadores"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/premio_timemaniaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos13"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/acertos3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sena2_duplasena"
-        android:layout_below="@+id/sena2_duplasena"
-        android:text="@string/acertos11"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/rateio_acertos13_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_acertos13_lotofacil"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/ganhadores_acertos11_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/acertos3"
-        android:layout_alignBottom="@+id/acertos3"
-        android:layout_alignLeft="@+id/ganhadores_acertos12_lotofacil"
-        android:text="@string/ganhadores"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <TextView
+                    android:id="@+id/ganhadores_acertos13_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/premio_timemaniaLabel"
+                    android:layout_alignBottom="@+id/premio_timemaniaLabel"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/rateio_acertos11_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ganhadores_acertos11_lotofacil"
-        android:layout_alignBottom="@+id/ganhadores_acertos11_lotofacil"
-        android:layout_alignParentRight="true"
-        android:text="@string/R$"
-        android:textColor="#920888"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_timemaniaLabel"
+                    android:layout_below="@+id/premio_timemaniaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
 
-    <View
-        android:id="@+id/view1"
-        android:layout_width="fill_parent"
-        android:layout_height="2px"
-        android:layout_alignLeft="@+id/acertos3"
-        android:layout_below="@+id/acertos3"
-        android:layout_marginTop="10dp"
-        android:background="#920888" />
+                <TextView
+                    android:id="@+id/acumulou_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <Button
-        android:id="@+id/VerResultadoLotoFacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/view1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="74dp"
-        android:background="#920888"
-        android:height="40dp"
-        android:shadowColor="#000000"
-        android:text="@string/buscarResultado"
-        android:textColor="#ffffff"
-        android:width="150dp" />
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view3"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos12"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/acumulou_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/view2"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#920888" />
+                <TextView
+                    android:id="@+id/ganhadores_acertos12_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView1"
+                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <TextView
-        android:id="@+id/ultima_atualizacao_lotofacil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/view1"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/view1"
-        android:layout_marginTop="49dp"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#920888" />
+                <TextView
+                    android:id="@+id/rateio_acertos12_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_acertos12_lotofacil"
+                    android:layout_alignBottom="@+id/ganhadores_acertos12_lotofacil"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
 
-</RelativeLayout>
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/textView1"
+                    android:layout_below="@+id/textView1"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/textView1"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos11"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/ganhadores_acertos11_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView4"
+                    android:layout_alignBottom="@+id/textView4"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/rateio_acertos11_lotofacil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_acertos11_lotofacil"
+                    android:layout_alignBottom="@+id/ganhadores_acertos11_lotofacil"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/textView4"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos"
+                    android:layout_below="@+id/textView4" />
+
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/VerResultadoLotoFacil"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/layout_lotofacil"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_redondo"
+                android:src="@drawable/ic_action_refresh" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/error_lotofacil"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Layout_lotofacil"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/concurso_megasena_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
 </ScrollView>

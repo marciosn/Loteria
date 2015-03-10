@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
@@ -44,6 +45,8 @@ public class TelaInicial extends Fragment{
 	private RequestQueue rq;
 	private Context context;
 	
+	private RelativeLayout relativeLayout;
+	
 	private TextView premio_megasena;
 	private TextView premio_quina;
 	private TextView premio_lotofacil;
@@ -56,11 +59,11 @@ public class TelaInicial extends Fragment{
 	private TextView concurso_timemania;
 	private TextView concurso_duplasena;
 	
-	private ImageButton btn_megasena;
-	private ImageButton btn_quina;
-	private ImageButton btn_lotofacil;
-	private ImageButton btn_duplasena;
-	private ImageButton btn_timemania;
+	private RelativeLayout btn_megasena;
+	private RelativeLayout btn_quina;
+	private RelativeLayout btn_lotofacil;
+	private RelativeLayout btn_duplasena;
+	private RelativeLayout btn_timemania;
 	
 	private FragmentManager fragmentManager;
 	private Fragment fragment;
@@ -84,10 +87,11 @@ public class TelaInicial extends Fragment{
 		
 		try {
 			carregarTextView(view);
+			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, "onCreateView "+e.toString());
-			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, " onCreateView Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 		}
 		return view;
 	}
@@ -103,6 +107,7 @@ public class TelaInicial extends Fragment{
 				new Listener<String>() {
 					@Override
 					public void onResponse(String response) {
+						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
 						Document doc = Jsoup.parse(response);
 						
@@ -130,6 +135,7 @@ public class TelaInicial extends Fragment{
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						relativeLayout.setVisibility(View.GONE);
 						Log.d(TAG, error.toString());
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_LONG).show();
 					}
@@ -161,6 +167,9 @@ public class TelaInicial extends Fragment{
 	}
 	
 	public void carregarTextView(View view){
+		
+		relativeLayout = (RelativeLayout) view.findViewById(R.id.tela_inicial_layout);
+		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
 		fragment = null;
@@ -171,17 +180,17 @@ public class TelaInicial extends Fragment{
 		premio_timemania = (TextView) view.findViewById(R.id.premio_timemaniaLabel);
 		premio_duplasena = (TextView) view.findViewById(R.id.premio_duplasenaLabel);
 		
-		concurso_megasena = (TextView) view.findViewById(R.id.concurso_megasena);
+		concurso_megasena = (TextView) view.findViewById(R.id.concurso_megasena_new);
 		concurso_quina = (TextView) view.findViewById(R.id.concurso_quina);
 		concurso_lotofacil = (TextView) view.findViewById(R.id.concurso_lotofacil);
 		concurso_timemania = (TextView) view.findViewById(R.id.concurso_timemania);
 		concurso_duplasena = (TextView) view.findViewById(R.id.concurso_duplasena);
 		
-		btn_megasena = (ImageButton) view.findViewById(R.id.logo_megasen);
-		btn_quina = (ImageButton) view.findViewById(R.id.logo_quina);
-		btn_duplasena = (ImageButton) view.findViewById(R.id.logo_duplasena);
-		btn_lotofacil = (ImageButton) view.findViewById(R.id.logo_lotofacil);
-		btn_timemania = (ImageButton) view.findViewById(R.id.logo_timemania);
+		btn_megasena = (RelativeLayout) view.findViewById(R.id.Layout_megasena);
+		btn_quina = (RelativeLayout) view.findViewById(R.id.Layout_quina);
+		btn_duplasena = (RelativeLayout) view.findViewById(R.id.Layout_duplasena);
+		btn_lotofacil = (RelativeLayout) view.findViewById(R.id.Layout_lotofacil);
+		btn_timemania = (RelativeLayout) view.findViewById(R.id.Layout_timemania);
 		
 		btn_megasena.setOnClickListener(new OnClickListener() {
 			

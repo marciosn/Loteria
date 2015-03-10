@@ -19,6 +19,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
@@ -37,10 +40,14 @@ import com.android.volley.toolbox.Volley;
 public class LotoFacilFragment extends Fragment {
 
 	private Context context;
-	public static final String TAG = "GERADOR NUMEROS";
+	public static final String TAG = LotoFacilFragment.class.getSimpleName();
 	public static final String URL_G1 = "http://g1.globo.com/loterias/lotofacil.html";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
+	
+	private RelativeLayout relativeLayout1;
+	private RelativeLayout relativeLayout2;
+	private LinearLayout linearLayout;
 
 	private TextView numero_concurso_TV;
 	private TextView resultado_concurso_TV;
@@ -58,7 +65,7 @@ public class LotoFacilFragment extends Fragment {
 
 	private TextView acumulou_TV;
 
-	private Button btn_verResultadosLotoFacil;
+	private ImageButton btn_verResultadosLotoFacil;
 
 	public LotoFacilFragment() {
 	}
@@ -74,6 +81,9 @@ public class LotoFacilFragment extends Fragment {
 		
 		try {
 			carregarTextView(view);
+			relativeLayout1.setVisibility(View.GONE);
+			relativeLayout2.setVisibility(View.GONE);
+			btn_verResultadosLotoFacil.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -93,6 +103,9 @@ public class LotoFacilFragment extends Fragment {
 
 					@Override
 					public void onResponse(String response) {
+						relativeLayout1.setVisibility(View.VISIBLE);
+						relativeLayout2.setVisibility(View.VISIBLE);
+						btn_verResultadosLotoFacil.setVisibility(View.VISIBLE);
 						hidePDialog();
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						Document doc = Jsoup.parse(response);
@@ -159,6 +172,7 @@ public class LotoFacilFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
@@ -189,6 +203,11 @@ public class LotoFacilFragment extends Fragment {
 	}
 	
 	public void carregarTextView(View view){
+		
+		relativeLayout1 = (RelativeLayout) view.findViewById(R.id.layout_lotofacil1);
+		relativeLayout2 = (RelativeLayout) view.findViewById(R.id.layout_lotofacil);
+		linearLayout = (LinearLayout) view.findViewById(R.id.error_lotofacil);
+		
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso_LotoFacil);
 		numero_concurso_TV = (TextView) view
@@ -218,8 +237,15 @@ public class LotoFacilFragment extends Fragment {
 
 		acumulou_TV = (TextView) view.findViewById(R.id.acumulou_lotofacil);
 
-		btn_verResultadosLotoFacil = (Button) view
-				.findViewById(R.id.VerResultadoLotoFacil);
+		btn_verResultadosLotoFacil = (ImageButton) view.findViewById(R.id.VerResultadoLotoFacil);
+		
+		linearLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				doIfOnline();
+			}
+		});
 
 		btn_verResultadosLotoFacil.setOnClickListener(new OnClickListener() {
 

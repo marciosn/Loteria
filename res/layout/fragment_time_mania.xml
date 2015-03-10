@@ -2,302 +2,431 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/clouds"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin">
+    android:background="@color/background_telas_jogos"
+    android:scrollbars="none" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="410dp" >
+        android:layout_height="440dp"
+        android:paddingLeft="@dimen/content"
+        android:paddingRight="@dimen/content" >
 
-        <TextView
-            android:id="@+id/numero_concurso_timemania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+        <RelativeLayout
+            android:id="@+id/Layout_timemania"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:paddingLeft="@dimen/content"
+            android:paddingRight="@dimen/content" >
+
+            <RelativeLayout
+                android:id="@+id/timemania1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/content"
+                android:layout_marginRight="@dimen/content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/content7"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/resultado_concurso_timemania"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/VerResultadoTimeMania"
+                android:contentDescription="@null"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/timemania2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/btn_redondo"
+                android:src="@drawable/ic_action_refresh" />
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignLeft="@+id/timemania2"
+                android:layout_below="@+id/timemania1"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/content7"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/resultado_time_do_coracao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/time_do_coracao"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/timemania2"
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_alignLeft="@+id/timemania1"
+                android:layout_below="@+id/relativeLayout1"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/content2" >
+
+                <TextView
+                    android:id="@+id/numero_concurso_timemania"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/concurso_duplasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/numero_concurso_timemania"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/premio_duplasenaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_duplasena"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos7"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_7_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_7_acertos"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_duplasenaLabel"
+                    android:layout_below="@+id/premio_duplasenaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/ganhadores_7_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/concurso_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view1"
+                    android:layout_below="@+id/view1"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos6"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_6_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_6_acertos"
+                    android:layout_alignBottom="@+id/ganhadores_6_acertos"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_6_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/concurso_quina"
+                    android:layout_alignBottom="@+id/concurso_quina"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_quina"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/premio_timemaniaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos5"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_5_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_5_acertos"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_5_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/premio_timemaniaLabel"
+                    android:layout_alignBottom="@+id/premio_timemaniaLabel"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_timemaniaLabel"
+                    android:layout_below="@+id/premio_timemaniaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/acumulou_timemania"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view3"
+                    android:layout_below="@+id/view3"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos4"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_4_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView1"
+                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_4_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_4_acertos"
+                    android:layout_alignBottom="@+id/ganhadores_4_acertos"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/textView1"
+                    android:layout_below="@+id/textView1"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@+id/textView1"
+                    android:layout_below="@+id/view4"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/acertos3"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_3_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView4"
+                    android:layout_alignBottom="@+id/textView4"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_3_acertos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_3_acertos"
+                    android:layout_alignBottom="@+id/ganhadores_3_acertos"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/textView4"
+                    android:layout_below="@+id/textView4"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view5"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/time_do_coracao2"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_time_do_coracao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView3"
+                    android:layout_alignBottom="@+id/textView3"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/rateio_time_do_coracao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_time_do_coracao"
+                    android:layout_alignBottom="@+id/ganhadores_time_do_coracao"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/textView3"
+                    android:layout_below="@+id/textView3"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/error_timemania"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Layout_timemania"
             android:layout_centerHorizontal="true"
-            android:text="@string/concurso_data"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/resultado_concurso_timemania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/numero_concurso_timemania"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:text="@string/resultado"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/VerResultadoTimeMania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="100dp"
-            android:background="#FF6400"
-            android:height="40dp"
-            android:shadowColor="#000000"
-            android:text="@string/buscarResultado"
-            android:textColor="#ffffff"
-            android:width="150dp" />
-
-        <View
-            android:id="@+id/view1"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/resultado_concurso_timemania"
-            android:layout_marginTop="42dp"
-            android:background="#FF6400" />
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/view1"
-            android:layout_marginTop="52dp"
-            android:background="#FF6400" />
-
-        <TextView
-            android:id="@+id/resultado_time_do_coracao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/view2"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
+            android:background="@drawable/btn"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="italic"
-            android:textColor="#FF6400" />
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" >
 
-        <TextView
-            android:id="@+id/acertos7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/view2"
-            android:layout_marginTop="15dp"
-            android:text="@string/acertos7"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
+            <TextView
+                android:id="@+id/concurso_megasena_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/acertos6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/acertos7"
-            android:layout_marginTop="15dp"
-            android:text="@string/acertos6"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/acertos5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/acertos6"
-            android:layout_marginTop="15dp"
-            android:text="@string/acertos5"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/acertos4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/acertos5"
-            android:layout_marginTop="15dp"
-            android:text="@string/acertos4"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/acertos3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/acertos4"
-            android:layout_marginTop="15dp"
-            android:text="@string/acertos3"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/time_do_coracao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/acertos3"
-            android:layout_marginTop="15dp"
-            android:text="@string/time_do_coracao2"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_6_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/acertos6"
-            android:layout_alignRight="@+id/ganhadores_7_acertos"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_4_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/acertos4"
-            android:layout_alignLeft="@+id/ganhadores_6_acertos"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_3_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/acertos3"
-            android:layout_alignRight="@+id/ganhadores_4_acertos"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_time_do_coracao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/time_do_coracao"
-            android:layout_alignLeft="@+id/ganhadores_5_acertos"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_7_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ganhadores_7_acertos"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_6_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ganhadores_6_acertos"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_5_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/ganhadores_5_acertos"
-            android:layout_alignBottom="@+id/ganhadores_5_acertos"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_4_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/ganhadores_4_acertos"
-            android:layout_alignBottom="@+id/ganhadores_4_acertos"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_3_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ganhadores_3_acertos"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/rateio_time_do_coracao"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/ganhadores_time_do_coracao"
-            android:layout_alignBottom="@+id/ganhadores_time_do_coracao"
-            android:layout_alignParentRight="true"
-            android:text="@string/R$"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/tv_valorAposta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view1"
-            android:layout_centerHorizontal="true"
-            android:text="@string/time_do_coracao"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_7_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/acertos6"
-            android:layout_centerHorizontal="true"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <TextView
-            android:id="@+id/ganhadores_5_acertos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/acertos5"
-            android:layout_alignBottom="@+id/acertos5"
-            android:layout_alignLeft="@+id/ganhadores_6_acertos"
-            android:text="@string/vazio"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400" />
-
-        <View
-            android:id="@+id/view3"
-            android:layout_width="wrap_content"
-            android:layout_height="2dp"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/time_do_coracao"
-            android:layout_marginTop="15dp"
-            android:background="#FF6400" />
-
-        <TextView
-            android:id="@+id/acumulou_timemania"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/view1"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#FF6400"
-            android:layout_marginBottom="5dp" />
-
+        </LinearLayout>
     </RelativeLayout>
 
 </ScrollView>

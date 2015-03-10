@@ -76,10 +76,10 @@
     <!-- proximos sorteios -->
     <string name="proximos_sorteios">Próximos Sorteios</string>
     
-    
     <string name="data">Data</string>
     <string name="concurso">Concurso</string>
-    
     <string name="sobre">Sobre</string>
+    
+    <string name="error">Tentar Novamente</string>
     
 </resources>

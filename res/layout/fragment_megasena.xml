@@ -2,184 +2,261 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/clouds" >
+    android:background="@color/background_telas_jogos"
+    android:scrollbars="none" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin" >
+        android:layout_height="400dp"
+        android:paddingLeft="@dimen/content"
+        android:paddingRight="@dimen/content" >
 
-        <TextView
-            android:id="@+id/numero_concurso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
+        <RelativeLayout
+            android:id="@+id/Layout_principal_megasena"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:paddingLeft="@dimen/content"
+            android:paddingRight="@dimen/content" >
+
+            <RelativeLayout
+                android:id="@+id/Layout_megasena"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/content"
+                android:layout_marginRight="@dimen/content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/content4"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/resultado_concurso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Layout_Megasena2"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_below="@+id/Layout_megasena"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/content"
+                android:layout_marginRight="@dimen/content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/content2">
+
+                <TextView
+                    android:id="@+id/numero_concurso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/black" 
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/concurso_duplasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/numero_concurso"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/premio_duplasenaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_duplasena"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sena"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/rateio_sena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_sena"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_duplasenaLabel"
+                    android:layout_below="@+id/premio_duplasenaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/ganhadores_sena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view1"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/concurso_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/view1"
+                    android:layout_below="@+id/view1"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/quina"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/rateio_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/ganhadores_quina"
+                    android:layout_alignBottom="@+id/ganhadores_quina"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/ganhadores_quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/concurso_quina"
+                    android:layout_alignBottom="@+id/concurso_quina"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/concurso_quina"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/premio_timemaniaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/view2"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/quadra"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/rateio_quadra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/ganhadores_quadra"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/ganhadores_quadra"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/premio_timemaniaLabel"
+                    android:layout_alignBottom="@+id/premio_timemaniaLabel"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/vazio"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_alignLeft="@+id/premio_timemaniaLabel"
+                    android:layout_below="@+id/premio_timemaniaLabel"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/background_telas_jogos" />
+
+                <TextView
+                    android:id="@+id/acumulado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/VerResultadoSena"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/Layout_Megasena2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/btn_redondo"
+                android:src="@drawable/ic_action_refresh" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/error_megasena"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Layout_principal_megasena"
             android:layout_centerHorizontal="true"
-            android:text="@string/concurso_data"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/sena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/resultado_concurso"
-            android:layout_marginTop="44dp"
-            android:text="@string/sena"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/ganhadores_sena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/sena"
-            android:layout_alignBottom="@+id/sena"
-            android:layout_centerHorizontal="true"
-            android:text="@string/ganhadores_sena"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/rateio_sena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ganhadores_sena"
-            android:layout_alignParentRight="true"
-            android:text="@string/valor_sena"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/quina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/sena"
-            android:layout_below="@+id/sena"
-            android:layout_marginTop="16dp"
-            android:text="@string/quina"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/ganhadores_quina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/quina"
-            android:layout_alignRight="@+id/ganhadores_sena"
-            android:text="@string/ganhadores_quina"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/rateio_quina"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/ganhadores_quina"
-            android:layout_alignBottom="@+id/ganhadores_quina"
-            android:layout_alignRight="@+id/rateio_sena"
-            android:text="@string/valor_quina"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/quadra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/quina"
-            android:layout_marginTop="14dp"
-            android:text="@string/quadra"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/ganhadores_quadra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/quadra"
-            android:layout_alignBottom="@+id/quadra"
-            android:layout_alignRight="@+id/ganhadores_quina"
-            android:text="@string/ganhadores_quadra"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/rateio_quadra"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/ganhadores_quadra"
-            android:layout_alignRight="@+id/rateio_quina"
-            android:text="@string/valor_quadra"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <View
-            android:id="@+id/view2"
-            android:layout_width="fill_parent"
-            android:layout_height="2px"
-            android:layout_above="@+id/ganhadores_sena"
-            android:layout_alignLeft="@+id/sena"
-            android:layout_marginBottom="10dp"
-            android:background="#11BC08"
-            android:textColor="#11BC08" />
-
-        <View
-            android:id="@+id/view1"
-            android:layout_width="fill_parent"
-            android:layout_height="2px"
-            android:layout_alignLeft="@+id/quadra"
-            android:layout_below="@+id/quadra"
-            android:layout_marginTop="10dp"
-            android:background="#11BC08" />
-
-        <Button
-            android:id="@+id/VerResultadoSena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="72dp"
-            android:background="#11BC08"
-            android:height="40dp"
-            android:shadowColor="#000000"
-            android:text="@string/buscarResultado"
-            android:textColor="#ffffff"
-            android:width="150dp" />
-
-        <TextView
-            android:id="@+id/resultado_concurso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/numero_concurso"
-            android:layout_centerHorizontal="true"
-            android:text="@string/resultado"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textStyle="bold"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/acumulado"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/view2"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
-
-        <TextView
-            android:id="@+id/ultima_atualizacao_megasena"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/view1"
-            android:layout_alignRight="@+id/view1"
-            android:layout_below="@+id/view1"
-            android:layout_marginTop="48dp"
+            android:background="@drawable/btn"
             android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="#11BC08" />
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            android:visibility="gone" >
 
+            <TextView
+                android:id="@+id/concurso_megasena_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
     </RelativeLayout>
 
 </ScrollView>

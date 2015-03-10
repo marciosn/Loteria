@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class ProximosSorteiosFragment extends Fragment{
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
 	
+	private RelativeLayout relativeLayout;
 	private Context context;
 	
 	private TextView proximo_concurso_megasena;
@@ -53,13 +55,13 @@ public class ProximosSorteiosFragment extends Fragment{
 		rq = Volley.newRequestQueue(context);
 		
 		try {
-			doIfOnline();
 			carregarTextView(view);
+			relativeLayout.setVisibility(View.GONE);
+			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
 			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 		}
-		
 		return view;
 	}
 	
@@ -74,6 +76,7 @@ public class ProximosSorteiosFragment extends Fragment{
 					@Override
 					public void onResponse(String response) {
 						hidePDialog();
+						relativeLayout.setVisibility(View.VISIBLE);
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						Document doc = Jsoup.parse(response);
 
@@ -127,6 +130,8 @@ public class ProximosSorteiosFragment extends Fragment{
 	}
 
 	public void carregarTextView(View view){
+		relativeLayout = (RelativeLayout) view.findViewById(R.id.proximos_sorteios_layout);
+		
 		proximo_concurso_megasena = (TextView) view.findViewById(R.id.proximo_concurso_megasena);
 		proximo_concurso_duplasena = (TextView) view.findViewById(R.id.proximo_concurso_duplasena);
 		proximo_concurso_lotofacil = (TextView) view.findViewById(R.id.proximo_concurso_lotofacil);

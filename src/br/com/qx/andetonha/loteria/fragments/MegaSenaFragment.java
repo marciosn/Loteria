@@ -17,6 +17,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
@@ -38,6 +41,10 @@ public class MegaSenaFragment extends Fragment {
 	public static final String URL_G1 = "http://g1.globo.com/loterias/megasena.html";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
+	
+	private RelativeLayout relativeLayout1;
+	private RelativeLayout relativeLayout2;
+	private LinearLayout error;
 
 	private TextView numero_concurso_TV;
 	private TextView resultado_concurso_TV;
@@ -47,13 +54,9 @@ public class MegaSenaFragment extends Fragment {
 	private TextView rateio_sena_TV;
 	private TextView rateio_quina_TV;
 	private TextView rateio_quadra_TV;
-	private TextView sena_TV;
-	private TextView quina_TV;
-	private TextView quadra_TV;
-	
 	private TextView acumulado_TV;
 
-	private Button btn_verResultadosSena;
+	private ImageButton btn_verResultadosSena;
 
 	private Context context;
 	private ActionBar actionBar;
@@ -72,6 +75,9 @@ public class MegaSenaFragment extends Fragment {
 		
 		try {
 			carregarTextView(view);
+			relativeLayout1.setVisibility(View.GONE);
+			relativeLayout2.setVisibility(View.GONE);
+			btn_verResultadosSena.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
 			Log.e(TAG, e.toString());
@@ -89,8 +95,13 @@ public class MegaSenaFragment extends Fragment {
 		StringRequest request = new StringRequest(Request.Method.GET, URL_G1,
 				new Listener<String>() {
 					@Override
-					public void onResponse(String response) {
+					public void onResponse(String response) {						
+						relativeLayout1.setVisibility(View.VISIBLE);
+						relativeLayout2.setVisibility(View.VISIBLE);
+						btn_verResultadosSena.setVisibility(View.VISIBLE);
+						
 						hidePDialog();
+						
 						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						Document doc = Jsoup.parse(response);
 
@@ -121,22 +132,24 @@ public class MegaSenaFragment extends Fragment {
 								Elements cols = row.select("td");
 
 								if (i == 0) {
-									sena_TV.setText(cols.get(0).text());
+									//sena_TV.setText(cols.get(0).text());
 									ganhadores_sena_TV.setText(cols.get(1).text());
 									rateio_sena_TV.setText(cols.get(2).text());
 								}
 								if (i == 1) {
-									quina_TV.setText(cols.get(0).text());
+									//quina_TV.setText(cols.get(0).text());
 									ganhadores_quina_TV.setText(cols.get(1).text());
 									rateio_quina_TV.setText(cols.get(2).text());
 								} else if (i == 2) {
-									quadra_TV.setText(cols.get(0).text());
+									//quadra_TV.setText(cols.get(0).text());
 									ganhadores_quadra_TV
 											.setText(cols.get(1).text());
 									rateio_quadra_TV.setText(cols.get(2).text());
 								}
 							}
 						} catch (Exception e) {
+							relativeLayout2.setVisibility(View.VISIBLE);
+							error.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
 							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
 						}
@@ -151,7 +164,7 @@ public class MegaSenaFragment extends Fragment {
 						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
 					}
 				});
-		int timeout = 10000;
+		int timeout = 30000;
 		RetryPolicy policy = new DefaultRetryPolicy(timeout,
 				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -177,6 +190,11 @@ public class MegaSenaFragment extends Fragment {
 	}
 	
 	public void carregarTextView(View view){
+		
+		relativeLayout1 = (RelativeLayout) view.findViewById(R.id.Layout_megasena);
+		relativeLayout2 = (RelativeLayout) view.findViewById(R.id.Layout_Megasena2);
+		error = (LinearLayout) view.findViewById(R.id.error_megasena);
+		
 		resultado_concurso_TV = (TextView) view
 				.findViewById(R.id.resultado_concurso);
 		numero_concurso_TV = (TextView) view.findViewById(R.id.numero_concurso);
@@ -188,14 +206,9 @@ public class MegaSenaFragment extends Fragment {
 		rateio_sena_TV = (TextView) view.findViewById(R.id.rateio_sena);
 		rateio_quina_TV = (TextView) view.findViewById(R.id.rateio_quina);
 		rateio_quadra_TV = (TextView) view.findViewById(R.id.rateio_quadra);
-		sena_TV = (TextView) view.findViewById(R.id.sena);
-		quina_TV = (TextView) view.findViewById(R.id.quina);
-		quadra_TV = (TextView) view.findViewById(R.id.quadra);
-		
 		acumulado_TV = (TextView) view.findViewById(R.id.acumulado);
 
-		btn_verResultadosSena = (Button) view
-				.findViewById(R.id.VerResultadoSena);
+		btn_verResultadosSena = (ImageButton) view.findViewById(R.id.VerResultadoSena);
 
 		btn_verResultadosSena.setOnClickListener(new OnClickListener() {
 
@@ -204,7 +217,15 @@ public class MegaSenaFragment extends Fragment {
 				doIfOnline();
 			}
 		});
+		
+		error.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				getResultados();
+				
+			}
+		});
 
 	}
-	
 }
