@@ -2,15 +2,15 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/verde" >
+    android:background="@color/verde"
+    android:scrollbars="none"
+    android:layout_marginLeft="@dimen/margin_horizontal"
+    android:layout_marginRight="@dimen/margin_horizontal" >
     
     <RelativeLayout
         android:id="@+id/tela_inicial_layout_main"
         android:layout_width="match_parent"
-        android:layout_height="602dp"
-        android:layout_marginTop="@dimen/spaces"
-        android:layout_marginLeft="@dimen/spaces"
-        android:layout_marginRight="@dimen/spaces"  >
+        android:layout_height="602dp">
     
     
     <RelativeLayout
@@ -231,8 +231,6 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </RelativeLayout>
-
-
 
     </RelativeLayout>
     <LinearLayout

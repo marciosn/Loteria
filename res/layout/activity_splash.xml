@@ -6,16 +6,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.com.qx.andetonha.loteria.Splash">
+    tools:context="br.com.qx.andetonha.loteria.Splash"
+    android:background="@color/black">
 
     <TextView
-        android:id="@+id/tv_valorAposta"
+        android:id="@+id/at"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:text="@string/at"
+        android:textColor="@color/white"
+        android:textSize="80dp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="198dp"
-        android:text="Logomarca em breve..."
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:layout_marginTop="22dp"
+        android:src="@drawable/splash" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/at"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

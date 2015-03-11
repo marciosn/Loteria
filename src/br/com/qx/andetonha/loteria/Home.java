@@ -105,6 +105,10 @@ public class Home extends ActionBarActivity implements
 			fragment = new ProximosSorteiosFragment();
 			actionBar.setTitle(PROXIMOS_SORTEIOS);
 			break;
+		case 8:
+			fragment = new SobreNos();
+			actionBar.setTitle(SOBRE);
+			break;
 		}
 
 		if (fragment != null) {
@@ -138,35 +142,5 @@ public class Home extends ActionBarActivity implements
 			mTitle = getString(R.string.Row_Time_Mania);
 			break;
 		}
-	}
-	
-	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {		
-		if (!mNavigationDrawerFragment.isDrawerOpen()) {
-
-			getMenuInflater().inflate(R.menu.home, menu);
-			return true;
-		}
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		actionBar = getSupportActionBar();
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			try {
-				fragmentManager = getSupportFragmentManager();
-				fragmentManager.beginTransaction().replace(R.id.container, new SobreNos()).commit();
-				actionBar.setTitle(SOBRE);
-			} catch (Exception e) {
-				Log.e("HOME", "onOptionsItemSelected "+e.toString());
-				Toast.makeText(this, "Ops!, temos um problema técnico!", Toast.LENGTH_LONG).show();
-			}
-			
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 }

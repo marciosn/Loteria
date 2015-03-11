@@ -120,17 +120,6 @@
                     android:background="@color/background_telas_jogos" />
 
                 <TextView
-                    android:id="@+id/ganhadores_quina_Quina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/view1"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/vazio"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
                     android:id="@+id/concurso_quina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -149,18 +138,6 @@
                     android:layout_alignBaseline="@+id/ganhadores_quadra_Quina"
                     android:layout_alignBottom="@+id/ganhadores_quadra_Quina"
                     android:layout_alignParentRight="true"
-                    android:text="@string/vazio"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                <TextView
-                    android:id="@+id/ganhadores_quadra_Quina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/concurso_quina"
-                    android:layout_alignBottom="@+id/concurso_quina"
-                    android:layout_centerHorizontal="true"
                     android:text="@string/vazio"
                     android:textStyle="bold"
                     android:textColor="@color/black"
@@ -198,18 +175,6 @@
                     android:textColor="@color/black"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
-                <TextView
-                    android:id="@+id/ganhadores_terno_Quina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/premio_timemaniaLabel"
-                    android:layout_alignBottom="@+id/premio_timemaniaLabel"
-                    android:layout_centerHorizontal="true"
-                    android:text="@string/vazio"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
-
                 <View
                     android:id="@+id/view3"
                     android:layout_width="wrap_content"
@@ -231,6 +196,42 @@
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/ganhadores_quina_Quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/premio_duplasenaLabel"
+                    android:layout_alignBottom="@+id/premio_duplasenaLabel"
+                    android:layout_alignLeft="@+id/ganhadores_quadra_Quina"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_quadra_Quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view2"
+                    android:layout_alignLeft="@+id/ganhadores_terno_Quina"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ganhadores_terno_Quina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/view3"
+                    android:layout_marginLeft="38dp"
+                    android:layout_toRightOf="@+id/concurso_quina"
+                    android:text="@string/vazio"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
             </RelativeLayout>
 
             <ImageButton

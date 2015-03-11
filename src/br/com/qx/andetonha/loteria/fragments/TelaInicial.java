@@ -106,6 +106,7 @@ public class TelaInicial extends Fragment{
 	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
+		pDialog.setCancelable(false);
 		pDialog.setMessage("Buscando...");
 		pDialog.show();
 
@@ -115,9 +116,10 @@ public class TelaInicial extends Fragment{
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
-						Document doc = Jsoup.parse(response);
 						
 						try {
+							Document doc = Jsoup.parse(response);
+							
 							premio_megasena.setText(doc.getElementsByClass("label-premio").get(0).text().toUpperCase());
 							premio_duplasena.setText(doc.getElementsByClass("coluna-ganhadores-concurso").get(0).text().toUpperCase());
 							premio_lotofacil.setText(doc.getElementsByClass("coluna-ganhadores-concurso").get(3).text().toUpperCase());
@@ -133,6 +135,11 @@ public class TelaInicial extends Fragment{
 							concurso_timemania.setText(doc.getElementsByClass("coluna-dados-concurso").get(7).text());
 							
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
+						} catch (OutOfMemoryError e) {
 							hidePDialog();
 							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());

@@ -115,7 +115,8 @@ public class NavigationDrawerFragment extends Fragment {
 						getString(R.string.Row_Loto_Facil),
 						getString(R.string.Row_Dupla_Sena),
 						getString(R.string.Row_Time_Mania),
-						getString(R.string.Row_Proximos_Sorteios),}));
+						getString(R.string.Row_Proximos_Sorteios),
+						getString(R.string.Row_sobre),}));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -255,19 +256,6 @@ public class NavigationDrawerFragment extends Fragment {
 		super.onConfigurationChanged(newConfig);
 		// Forward the new configuration the drawer toggle component.
 		mDrawerToggle.onConfigurationChanged(newConfig);
-	}
-
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		// If the drawer is open, show the global app actions in the action bar.
-		// See also
-		// showGlobalContextActionBar, which controls the top-left area of the
-		// action bar.
-		/*if (mDrawerLayout != null && isDrawerOpen()) {
-			inflater.inflate(R.menu.global, menu);
-			showGlobalContextActionBar();
-		}*/
-		super.onCreateOptionsMenu(menu, inflater);
 	}
 
 	@Override

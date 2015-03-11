@@ -97,6 +97,7 @@ public class TimeManiaFragment extends Fragment {
 	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
+		pDialog.setCancelable(false);
 		pDialog.setMessage("Buscando...");
 		pDialog.show();
 
@@ -109,9 +110,9 @@ public class TimeManiaFragment extends Fragment {
 						hidePDialog();
 						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
-						Document doc = Jsoup.parse(response);
-
 						try {
+							Document doc = Jsoup.parse(response);
+							
 							numero_concurso_TV.setText(doc.getElementsByClass(
 									"numero-concurso").text()
 									+ " - "
@@ -173,6 +174,11 @@ public class TimeManiaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
+						} catch (OutOfMemoryError e) {
 							hidePDialog();
 							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());

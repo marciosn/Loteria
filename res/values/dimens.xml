@@ -1,6 +1,7 @@
 <resources>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="margin_horizontal">3dp</dimen>
     <dimen name="activity_horizontal_margin">3dp</dimen>
     <dimen name="activity_vertical_margin">2dp</dimen>
     
@@ -19,5 +20,7 @@
 	<dimen name="spaces">4dp</dimen>
 	<dimen name="numeros_bola">40dp</dimen>
 	<dimen name="espaco_numeros_bola">6dp</dimen>
+	<dimen name="content_proximos_sorteios">120dp</dimen>
+	
 </resources>
 

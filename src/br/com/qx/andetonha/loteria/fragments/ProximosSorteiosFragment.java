@@ -72,6 +72,7 @@ public class ProximosSorteiosFragment extends Fragment{
 	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
+		pDialog.setCancelable(false);
 		pDialog.setMessage("Buscando...");
 		pDialog.show();
 
@@ -82,9 +83,11 @@ public class ProximosSorteiosFragment extends Fragment{
 						hidePDialog();
 						relativeLayout.setVisibility(View.VISIBLE);
 						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
-						Document doc = Jsoup.parse(response);
-
+						
 						try {
+							Document doc = Jsoup.parse(response);
+
+							
 							proximo_concurso_megasena.setText(doc.getElementsByClass("wrapper-proximo-concurso").get(5).text() +"\n"+
 									doc.getElementsByClass("valor-premio").get(5).text());
 							proximo_concurso_duplasena.setText(doc.getElementsByClass("wrapper-proximo-concurso").get(0).text() +"\n"+
@@ -96,6 +99,11 @@ public class ProximosSorteiosFragment extends Fragment{
 							proximo_concurso_timemania.setText(doc.getElementsByClass("wrapper-proximo-concurso").get(7).text() +"\n"+
 									doc.getElementsByClass("valor-premio").get(7).text());
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
+							Log.e(TAG, "getResultados "+e.toString());
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
+						} catch (OutOfMemoryError e) {
 							hidePDialog();
 							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, "getResultados "+e.toString());
@@ -112,7 +120,7 @@ public class ProximosSorteiosFragment extends Fragment{
 						Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_SHORT).show();
 					}
 				});
-		int timeout = 10000;
+		int timeout = 30000;
 		RetryPolicy policy = new DefaultRetryPolicy(timeout,
 		DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 		DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);

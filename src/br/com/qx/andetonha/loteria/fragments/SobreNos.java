@@ -3,6 +3,7 @@ package br.com.qx.andetonha.loteria.fragments;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,12 @@ public class SobreNos extends Fragment{
 		
 		TextView andeTonha = (TextView) view.findViewById(R.id.andetonha);
 		
-		Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Something in the way.ttf");
-		andeTonha.setTypeface(font);		
+		try {
+			Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Something in the way.ttf");
+			andeTonha.setTypeface(font);
+		} catch (Exception e) {
+			Log.e("SOBRE", e.toString());
+		}
 		return view;
 	}
 

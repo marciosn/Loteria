@@ -1,8 +1,5 @@
 package br.com.qx.andetonha.loteria.fragments;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,14 +9,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -93,6 +88,7 @@ public class MegaSenaFragment extends Fragment {
 	public void getResultados() {
 
 		pDialog = new ProgressDialog(context);
+		pDialog.setCancelable(false);
 		pDialog.setMessage("Buscando...");
 		pDialog.show();
 
@@ -107,9 +103,10 @@ public class MegaSenaFragment extends Fragment {
 						hidePDialog();
 						
 						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
-						Document doc = Jsoup.parse(response);
-
-						try {
+						
+						try {							
+							Document doc = Jsoup.parse(response);
+							
 							numero_concurso_TV.setText(doc.getElementsByClass(
 									"numero-concurso").text()
 									+ " - "
@@ -151,6 +148,11 @@ public class MegaSenaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							hidePDialog();
+							error.setVisibility(View.VISIBLE);
+							Log.e(TAG, e.toString());
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
+						} catch (OutOfMemoryError e) {
 							hidePDialog();
 							error.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());

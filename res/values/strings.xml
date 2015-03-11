@@ -10,6 +10,7 @@
     <string name="Row_Dupla_Sena">Dupla Sena</string>
     <string name="Row_Time_Mania">Time Mania</string>
     <string name="Row_Proximos_Sorteios">Próximos Sorteios</string>
+    <string name="Row_sobre">Sobre</string>
 
     <string name="hint_aposta">Palpite</string>
     <string name="info_caixa">*Valores fornecidos pela Caixa Econômica Federal</string>
@@ -40,10 +41,10 @@
 
     <!-- Loto Facil -->
     <string name="acertos15">15 Acertos</string>
-    <string name="acertos14">14 Acertos</string>
-    <string name="acertos13">13 Acertos</string>
-    <string name="acertos12">12 Acertos</string>
-    <string name="acertos11">11 Acertos</string>
+    <string name="acertos14">14 Ac..</string>
+    <string name="acertos13">13 Ac..</string>
+    <string name="acertos12">12 Ac..</string>
+    <string name="acertos11">11 Ac..</string>
     <string name="R$">R$</string>
     <string name="ganhadores">Ganhadores</string>
     
@@ -58,7 +59,7 @@
     <string name="acertos4">4 Acertos</string>
     <string name="acertos3">3 Acertos</string>
     <string name="time_do_coracao">TIME DO CORAÇÃO</string>
-    <string name="time_do_coracao2">Time do coração</string>
+    <string name="time_do_coracao2">T. Coração</string>
     <string name="vazio">#</string>
     <string name="atualizar">Atualizar</string>
     
@@ -82,6 +83,7 @@
     <string name="error">Tentar Novamente</string>
     <string name="andetonha">AndeTonha</string>
     <string name="versao">Versão 1.0</string>
+    <string name="at">AT</string>
     
     <string name="resultado_megasena">Resultado Mega-Sena</string>
     <string name="resultado_quina">Resultado Quina</string>

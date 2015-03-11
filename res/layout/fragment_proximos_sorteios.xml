@@ -2,25 +2,25 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/verde" >
+    android:background="@color/verde"
+    android:scrollbars="none"
+    android:layout_marginLeft="@dimen/margin_horizontal"
+    android:layout_marginRight="@dimen/margin_horizontal">
     
     <RelativeLayout
         android:id="@+id/proximos_sorteios_layout_main"
         android:layout_width="match_parent"
-        android:layout_height="602dp"
-        android:layout_marginTop="@dimen/spaces"
-        android:layout_marginLeft="@dimen/spaces"
-        android:layout_marginRight="@dimen/spaces" >
+        android:layout_height="602dp" >
     
     <RelativeLayout
         android:id="@+id/proximos_sorteios_layout"
         android:layout_width="match_parent"
-        android:layout_height="600dp" >
+        android:layout_height="700dp" >
 
         <RelativeLayout
             android:id="@+id/Layout_duplasenaps"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/content_proximos_sorteios"
             android:layout_below="@+id/Layout_megasenaps"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
@@ -50,7 +50,7 @@
         <RelativeLayout
             android:id="@+id/Layout_lotofacilps"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/content_proximos_sorteios"
             android:layout_below="@+id/Layout_duplasenaps"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
@@ -81,7 +81,7 @@
         <RelativeLayout
             android:id="@+id/Layout_quinaps"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/content_proximos_sorteios"
             android:layout_below="@+id/Layout_lotofacilps"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
@@ -112,7 +112,7 @@
         <RelativeLayout
             android:id="@+id/Layout_timemaniaps"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/content_proximos_sorteios"
             android:layout_below="@+id/Layout_quinaps"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
@@ -143,7 +143,7 @@
         <RelativeLayout
             android:id="@+id/Layout_megasenaps"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="@dimen/content_proximos_sorteios"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/content"

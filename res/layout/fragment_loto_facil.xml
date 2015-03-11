@@ -21,7 +21,7 @@
             <RelativeLayout
                 android:id="@+id/layout_lotofacil1"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
@@ -42,7 +42,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
