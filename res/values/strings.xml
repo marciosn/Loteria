@@ -79,7 +79,16 @@
     <string name="data">Data</string>
     <string name="concurso">Concurso</string>
     <string name="sobre">Sobre</string>
-    
     <string name="error">Tentar Novamente</string>
+    <string name="andetonha">AndeTonha</string>
+    <string name="versao">Versão 1.0</string>
+    
+    <string name="resultado_megasena">Resultado Mega-Sena</string>
+    <string name="resultado_quina">Resultado Quina</string>
+    <string name="resultado_timemania">Resultado TimeMania</string>
+    <string name="resultado_lotofacil">Resultado Loto Fácil</string>
+    <string name="resultado_duplasena">Resultado Dupla-Sena</string>
+    
+    
     
 </resources>

@@ -7,30 +7,29 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="430dp"
         android:paddingLeft="@dimen/content"
         android:paddingRight="@dimen/content" >
 
         <RelativeLayout
             android:id="@+id/Layout_principal_megasena"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="440dp"
             android:paddingLeft="@dimen/content"
             android:paddingRight="@dimen/content" >
 
             <RelativeLayout
                 android:id="@+id/Layout_megasena"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/content4"
-                android:gravity="center"
                 android:orientation="vertical" >
 
-                <TextView
+                <!-- <TextView
                     android:id="@+id/resultado_concurso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,7 +39,30 @@
                     android:padding="10dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
+                    android:textStyle="bold" /> -->
+
+                <TextView
+                    android:id="@+id/resultado_concurso_megasena"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/andetonha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/resultado_megasena"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -229,7 +251,7 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/Layout_Megasena2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_redondo"
                 android:src="@drawable/ic_action_refresh" />
         </RelativeLayout>
@@ -237,13 +259,12 @@
         <LinearLayout
             android:id="@+id/error_megasena"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/Layout_principal_megasena"
+            android:layout_height="@dimen/error_altura"
             android:layout_centerHorizontal="true"
             android:background="@drawable/btn"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/topo"
             android:visibility="gone" >
 
             <TextView

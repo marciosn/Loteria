@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ public class TelaInicial extends Fragment{
 	public static final String DUPLA_SENA = "Dupla Sena";
 	public static final String TAG = TelaInicial.class.getSimpleName();
 	public static final String URL_G1 = "http://g1.globo.com/loterias/index.html";
+	public static final String TOAST_MESSAGE = "Não foi possível buscar os resultados!";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
 	private Context context;
@@ -64,6 +66,8 @@ public class TelaInicial extends Fragment{
 	private RelativeLayout btn_lotofacil;
 	private RelativeLayout btn_duplasena;
 	private RelativeLayout btn_timemania;
+	
+	private LinearLayout linearLayout;
 	
 	private FragmentManager fragmentManager;
 	private Fragment fragment;
@@ -90,8 +94,10 @@ public class TelaInicial extends Fragment{
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
+			hidePDialog();
+			linearLayout.setVisibility(View.VISIBLE);
 			Log.e(TAG, "onCreateView "+e.toString());
-			Toast.makeText(context, " onCreateView Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 		}
 		return view;
 	}
@@ -127,20 +133,23 @@ public class TelaInicial extends Fragment{
 							concurso_timemania.setText(doc.getElementsByClass("coluna-dados-concurso").get(7).text());
 							
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
-							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 						}
 					}
 				}, new Response.ErrorListener() {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
-						relativeLayout.setVisibility(View.GONE);
+						hidePDialog();
+						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_LONG).show();
+						Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 					}
 				});
-		int timeout = 10000;
+		int timeout = 30000;
 		RetryPolicy policy = new DefaultRetryPolicy(timeout,
 				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
@@ -169,6 +178,7 @@ public class TelaInicial extends Fragment{
 	public void carregarTextView(View view){
 		
 		relativeLayout = (RelativeLayout) view.findViewById(R.id.tela_inicial_layout);
+		linearLayout = (LinearLayout) view.findViewById(R.id.error_tela_inicial);
 		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
@@ -233,6 +243,14 @@ public class TelaInicial extends Fragment{
 			public void onClick(View v) {
 				setFragment(new TimeManiaFragment());
 				actionBar.setTitle(TIMEMANIA);
+			}
+		});
+		
+		linearLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				doIfOnline();
 			}
 		});
 	}

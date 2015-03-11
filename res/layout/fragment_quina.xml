@@ -14,33 +14,43 @@
         <RelativeLayout
             android:id="@+id/Layout_principal_quina"
             android:layout_width="match_parent"
-            android:layout_height="380dp"
+            android:layout_height="440dp"
             android:paddingLeft="@dimen/content"
             android:paddingRight="@dimen/content" >
 
             <RelativeLayout
                 android:id="@+id/Layout_quina1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/content6"
-                android:gravity="center"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/resultado_concurso_Quina"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/andetonha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/resultado_quina"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -229,7 +239,7 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/Layout_quina2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_redondo"
                 android:src="@drawable/ic_action_refresh" />
         </RelativeLayout>
@@ -237,13 +247,13 @@
         <LinearLayout
             android:id="@+id/error_quina"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/error_altura"
             android:layout_below="@+id/Layout_principal_quina"
             android:layout_centerHorizontal="true"
             android:background="@drawable/btn"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/topo"
             android:visibility="gone" >
 
             <TextView

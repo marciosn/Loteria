@@ -14,7 +14,7 @@
         <RelativeLayout
             android:id="@+id/Layout_duplasena"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
+            android:layout_height="730dp"
             android:paddingLeft="@dimen/activity_vertical_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:visibility="visible" >
@@ -22,24 +22,34 @@
             <RelativeLayout
                 android:id="@+id/relativeLayoutDuplaSena"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/content3"
-                android:gravity="center"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/resultadoConcursoDuplaSena"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/andetonha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-					android:textStyle="bold"
-					android:textColor="@color/white"                   
+                    android:text="@string/resultado_duplasena"
+                    android:textColor="@color/white"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </RelativeLayout>
 
             <LinearLayout
@@ -423,7 +433,7 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/Layout_megasena"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_redondo"
                 android:src="@drawable/ic_action_refresh" />
         </RelativeLayout>
@@ -431,10 +441,10 @@
         <LinearLayout
             android:id="@+id/errorDuplaSena"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/error_altura"
             android:layout_below="@+id/Layout_duplasena"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="@dimen/topo"
             android:background="@drawable/btn"
             android:gravity="center"
             android:visibility="gone"

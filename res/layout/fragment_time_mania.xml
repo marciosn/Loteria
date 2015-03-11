@@ -14,33 +14,43 @@
         <RelativeLayout
             android:id="@+id/Layout_timemania"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="640dp"
             android:paddingLeft="@dimen/content"
             android:paddingRight="@dimen/content" >
 
             <RelativeLayout
                 android:id="@+id/timemania1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/content7"
-                android:gravity="center"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/resultado_concurso_timemania"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:padding="10dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/resultado_timemania"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white" />
+
             </RelativeLayout>
 
             <ImageButton
@@ -267,7 +277,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/andetonha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/view3"
@@ -282,8 +292,8 @@
                     android:id="@+id/ganhadores_4_acertos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView1"
-                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_alignBaseline="@+id/andetonha"
+                    android:layout_alignBottom="@+id/andetonha"
                     android:layout_centerHorizontal="true"
                     android:text="@string/vazio"
                     android:textAppearance="?android:attr/textAppearanceSmall"
@@ -306,8 +316,8 @@
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_alignLeft="@+id/textView1"
-                    android:layout_below="@+id/textView1"
+                    android:layout_alignLeft="@+id/andetonha"
+                    android:layout_below="@+id/andetonha"
                     android:layout_marginTop="5dp"
                     android:background="@color/background_telas_jogos" />
 
@@ -315,7 +325,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@+id/textView1"
+                    android:layout_alignRight="@+id/andetonha"
                     android:layout_below="@+id/view4"
                     android:layout_marginTop="10dp"
                     android:text="@string/acertos3"
@@ -407,13 +417,13 @@
         <LinearLayout
             android:id="@+id/error_timemania"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/error_altura"
             android:layout_below="@+id/Layout_timemania"
             android:layout_centerHorizontal="true"
             android:background="@drawable/btn"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/topo"
             android:visibility="gone" >
 
             <TextView

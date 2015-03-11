@@ -42,6 +42,7 @@ public class LotoFacilFragment extends Fragment {
 	private Context context;
 	public static final String TAG = LotoFacilFragment.class.getSimpleName();
 	public static final String URL_G1 = "http://g1.globo.com/loterias/lotofacil.html";
+	public static final String TOAST_MESSAGE = "Não foi possível buscar os resultados!";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
 	
@@ -86,8 +87,10 @@ public class LotoFacilFragment extends Fragment {
 			btn_verResultadosLotoFacil.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
+			hidePDialog();
+			linearLayout.setVisibility(View.VISIBLE);
 			Log.e(TAG, e.toString());
-			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 		}
 		return view;
 	}
@@ -107,7 +110,7 @@ public class LotoFacilFragment extends Fragment {
 						relativeLayout2.setVisibility(View.VISIBLE);
 						btn_verResultadosLotoFacil.setVisibility(View.VISIBLE);
 						hidePDialog();
-						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						Document doc = Jsoup.parse(response);
 
 						try {
@@ -163,8 +166,10 @@ public class LotoFacilFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
-							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 						}
 						
 					}
@@ -172,12 +177,13 @@ public class LotoFacilFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						hidePDialog();
 						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
+						Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_SHORT).show();
 					}
 				});
-		int timeout = 10000;
+		int timeout = 30000;
 		RetryPolicy policy = new DefaultRetryPolicy(timeout,
 				DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
 				DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);

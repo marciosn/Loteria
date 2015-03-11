@@ -41,6 +41,7 @@ public class TimeManiaFragment extends Fragment {
 	private Context context;
 	public static final String TAG = TimeManiaFragment.class.getName();
 	public static final String URL_G1 = "http://g1.globo.com/loterias/timemania.html";
+	public static final String TOAST_MESSAGE = "Não foi possível buscar os resultados!";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
 
@@ -85,8 +86,10 @@ public class TimeManiaFragment extends Fragment {
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
+			hidePDialog();
+			linearLayout.setVisibility(View.VISIBLE);
 			Log.e(TAG, e.toString());
-			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 		}
 		return view;
 	}
@@ -104,7 +107,7 @@ public class TimeManiaFragment extends Fragment {
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
-						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
 						Document doc = Jsoup.parse(response);
 
@@ -170,17 +173,20 @@ public class TimeManiaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							hidePDialog();
+							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
-							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 						}
 					}
 				}, new Response.ErrorListener() {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						hidePDialog();
 						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
+						Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_SHORT).show();
 					}
 				});
 		int timeout = 30000;
@@ -256,7 +262,7 @@ public class TimeManiaFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
-				getResultados();
+				doIfOnline();
 			}
 		});
 

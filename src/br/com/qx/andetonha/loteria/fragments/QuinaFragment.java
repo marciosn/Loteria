@@ -40,6 +40,7 @@ public class QuinaFragment extends Fragment {
 	private Context context;
 	public static final String TAG = QuinaFragment.class.getName();
 	public static final String URL_G1 = "http://g1.globo.com/loterias/quina.html";
+	public static final String TOAST_MESSAGE = "Não foi possível buscar os resultados!";
 	private ProgressDialog pDialog;
 	private RequestQueue rq;
 
@@ -73,8 +74,10 @@ public class QuinaFragment extends Fragment {
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();
 		} catch (Exception e) {
+			hidePDialog();
+			linearLayout.setVisibility(View.VISIBLE);
 			Log.e(TAG, e.toString());
-			Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 		}
 
 		return view;
@@ -93,7 +96,7 @@ public class QuinaFragment extends Fragment {
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
-						Toast.makeText(context, "Última Atualizão: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
+						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
 						Document doc = Jsoup.parse(response);
 
@@ -137,9 +140,10 @@ public class QuinaFragment extends Fragment {
 								}
 							}
 						} catch (Exception e) {
+							hidePDialog();
 							linearLayout.setVisibility(View.VISIBLE);
 							Log.e(TAG, e.toString());
-							Toast.makeText(context, "Não foi possível carregar os dados!", Toast.LENGTH_LONG).show();
+							Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 						}
 
 					}
@@ -147,9 +151,10 @@ public class QuinaFragment extends Fragment {
 
 					@Override
 					public void onErrorResponse(VolleyError error) {
+						hidePDialog();
 						linearLayout.setVisibility(View.VISIBLE);
 						Log.d(TAG, error.toString());
-						Toast.makeText(context, "A busca falhou. Tente novamente!", Toast.LENGTH_SHORT).show();
+						Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_SHORT).show();
 					}
 				});
 		int timeout = 10000;
@@ -202,6 +207,14 @@ public class QuinaFragment extends Fragment {
 		btn_verResultadosSena = (ImageButton) view
 				.findViewById(R.id.VerResultadoQuina);
 
+		linearLayout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				doIfOnline();
+			}
+		});
+		
 		btn_verResultadosSena.setOnClickListener(new OnClickListener() {
 
 			@Override

@@ -14,33 +14,43 @@
         <RelativeLayout
             android:id="@+id/Layout_lotofacil"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="510dp"
             android:paddingLeft="@dimen/content"
             android:paddingRight="@dimen/content" >
 
             <RelativeLayout
                 android:id="@+id/layout_lotofacil1"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/content"
                 android:layout_marginRight="@dimen/content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/content5"
-                android:gravity="center"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/resultado_concurso_LotoFacil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:padding="10dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/resultado_lotofacil"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -223,7 +233,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/andetonha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/view3"
@@ -238,8 +248,8 @@
                     android:id="@+id/ganhadores_acertos12_lotofacil"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView1"
-                    android:layout_alignBottom="@+id/textView1"
+                    android:layout_alignBaseline="@+id/andetonha"
+                    android:layout_alignBottom="@+id/andetonha"
                     android:layout_centerHorizontal="true"
                     android:text="@string/vazio"
                     android:textStyle="bold"
@@ -262,8 +272,8 @@
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_alignLeft="@+id/textView1"
-                    android:layout_below="@+id/textView1"
+                    android:layout_alignLeft="@+id/andetonha"
+                    android:layout_below="@+id/andetonha"
                     android:layout_marginTop="5dp"
                     android:background="@color/background_telas_jogos" />
 
@@ -271,7 +281,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignRight="@+id/textView1"
+                    android:layout_alignRight="@+id/andetonha"
                     android:layout_below="@+id/view4"
                     android:layout_marginTop="10dp"
                     android:text="@string/acertos11"
@@ -320,7 +330,7 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/layout_lotofacil"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_redondo"
                 android:src="@drawable/ic_action_refresh" />
         </RelativeLayout>
@@ -328,13 +338,12 @@
         <LinearLayout
             android:id="@+id/error_lotofacil"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/Layout_lotofacil"
+            android:layout_height="@dimen/error_altura"
             android:layout_centerHorizontal="true"
             android:background="@drawable/btn"
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/topo"
             android:visibility="gone" >
 
             <TextView

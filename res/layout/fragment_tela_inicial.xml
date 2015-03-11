@@ -2,15 +2,21 @@
     android:id="@+id/scrollView1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/black" >
+    android:background="@color/verde" >
+    
+    <RelativeLayout
+        android:id="@+id/tela_inicial_layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="602dp"
+        android:layout_marginTop="@dimen/spaces"
+        android:layout_marginLeft="@dimen/spaces"
+        android:layout_marginRight="@dimen/spaces"  >
+    
     
     <RelativeLayout
         android:id="@+id/tela_inicial_layout"
         android:layout_width="match_parent"
-        android:layout_height="570dp"
-        android:layout_marginTop="@dimen/spaces"
-        android:layout_marginLeft="@dimen/spaces"
-        android:layout_marginRight="@dimen/spaces" >
+        android:layout_height="600dp" >
 
         <RelativeLayout
             android:id="@+id/Layout_duplasena"
@@ -226,6 +232,32 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
 
+
+    </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/error_tela_inicial"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/error_altura"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/topo"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/btn"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/andetonha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        </LinearLayout>
+</RelativeLayout>
 </ScrollView>

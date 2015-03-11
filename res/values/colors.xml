@@ -31,5 +31,7 @@
     <color name="cor_quina">#2980b9</color>
 	<color name="cor_timemania">#2ecc71</color>
 	<color name="cor_duplasena">#e74c3c</color>
+	<color name="drawer">#ecf0f1</color>
+	<color name="verde">#D4D8D9</color>
 	
 </resources>
