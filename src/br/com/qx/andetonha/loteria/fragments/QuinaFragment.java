@@ -97,7 +97,6 @@ public class QuinaFragment extends Fragment {
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
-						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 
 						try {
 							Document doc = Jsoup.parse(response);

@@ -6,6 +6,7 @@ import org.jsoup.nodes.Document;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +16,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -70,7 +70,6 @@ public class TelaInicial extends Fragment{
 	private LinearLayout linearLayout;
 	
 	private FragmentManager fragmentManager;
-	private Fragment fragment;
 	private ActionBar actionBar;
 	
 	public TelaInicial(FragmentManager fragmentManager, ActionBar actionBar) {
@@ -97,7 +96,12 @@ public class TelaInicial extends Fragment{
 			hidePDialog();
 			linearLayout.setVisibility(View.VISIBLE);
 			Log.e(TAG, "onCreateView "+e.toString());
-			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE , Toast.LENGTH_LONG).show();
+		} catch (OutOfMemoryError e) {
+			hidePDialog();
+			linearLayout.setVisibility(View.VISIBLE);
+			Log.e(TAG, e.toString());
+			Toast.makeText(context, TOAST_MESSAGE , Toast.LENGTH_LONG).show();
 		}
 		return view;
 	}
@@ -183,13 +187,11 @@ public class TelaInicial extends Fragment{
 	}
 	
 	public void carregarTextView(View view){
-		
 		relativeLayout = (RelativeLayout) view.findViewById(R.id.tela_inicial_layout);
 		linearLayout = (LinearLayout) view.findViewById(R.id.error_tela_inicial);
 		
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
-		fragment = null;
 		
 		premio_megasena = (TextView) view.findViewById(R.id.premio_megasenaLabel);
 		premio_quina = (TextView) view.findViewById(R.id.premio_quinaLabel);
@@ -266,7 +268,7 @@ public class TelaInicial extends Fragment{
 		try {
 			fragmentManager.beginTransaction().replace(R.id.container, fragment).commit();
 		} catch (Exception e) {
-			Toast.makeText(context, "Ops!, Temos um problema técnico!", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, TOAST_MESSAGE, Toast.LENGTH_LONG).show();
 		}
 	}
 }

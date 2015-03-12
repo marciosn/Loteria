@@ -82,7 +82,6 @@ public class ProximosSorteiosFragment extends Fragment{
 					public void onResponse(String response) {
 						hidePDialog();
 						relativeLayout.setVisibility(View.VISIBLE);
-						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
 						
 						try {
 							Document doc = Jsoup.parse(response);

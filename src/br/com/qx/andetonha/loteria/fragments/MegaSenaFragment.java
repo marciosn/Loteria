@@ -102,8 +102,6 @@ public class MegaSenaFragment extends Fragment {
 						
 						hidePDialog();
 						
-						Toast.makeText(context, "Última Atualização: "+new Utils().getDate(), Toast.LENGTH_LONG).show();
-						
 						try {							
 							Document doc = Jsoup.parse(response);
 							

@@ -15,7 +15,8 @@ public class Splash extends ActionBarActivity {
 	private boolean splashActive = true;
 	private boolean paused=false;
 	private TextView at;
-
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

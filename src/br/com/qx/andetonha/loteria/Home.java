@@ -7,10 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.widget.Toast;
 import br.com.qx.andetonha.loteria.fragments.DuplaSenaFragment;
 import br.com.qx.andetonha.loteria.fragments.GerarApostasFragment;
 import br.com.qx.andetonha.loteria.fragments.LotoFacilFragment;
@@ -20,9 +16,9 @@ import br.com.qx.andetonha.loteria.fragments.QuinaFragment;
 import br.com.qx.andetonha.loteria.fragments.SobreNos;
 import br.com.qx.andetonha.loteria.fragments.TelaInicial;
 import br.com.qx.andetonha.loteria.fragments.TimeManiaFragment;
+import com.frnm.lgzu222050.AdListener;
 
-public class Home extends ActionBarActivity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class Home extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 	
 	public static final String LOTERIA = "Loteria";
 	public static final String GERAR_PALPITE = "Gerar Palpite";
@@ -34,6 +30,7 @@ public class Home extends ActionBarActivity implements
 	public static final String PROXIMOS_SORTEIOS = "Próximos Sorteios";
 	public static final String SOBRE = "Sobre";
 	
+	
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
@@ -44,9 +41,11 @@ public class Home extends ActionBarActivity implements
 	 * Used to store the last screen title. For use in
 	 * {@link #restoreActionBar()}.
 	 */
+	
 	private CharSequence mTitle;
 	private ActionBar actionBar;
 	private FragmentManager fragmentManager;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +58,8 @@ public class Home extends ActionBarActivity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-
-	}
+		
+}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
