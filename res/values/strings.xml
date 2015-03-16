@@ -15,7 +15,7 @@
     <string name="hint_aposta">Palpite</string>
     <string name="info_caixa">*Valores fornecidos pela Caixa Econômica Federal</string>
     <string name="site_mega_sena"><a href="http://loterias.caixa.gov.br/wps/portal/loterias/landing/megasena/!ut/p/a1/04_Sj9CPykssy0xPLMnMz0vMAfGjzOLNDH0MPAzcDbwMPI0sDBxNXAOMwrzCjA0sjIEKIoEKnN0dPUzMfQwMDEwsjAw8XZw8XMwtfQ0MPM2I02-AAzgaENIfrh-FqsQ9wNnUwNHfxcnSwBgIDUyhCvA5EawAjxsKckMjDDI9FQE-F4ca/dl5/d5/L2dBISEvZ0FBIS9nQSEh/#resultados">Acessar site Mega-Sena</a></string>
-    <string name="app_name">Loteria</string>
+    <string name="app_name">Loteria Móvel</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
@@ -83,14 +83,15 @@
     <string name="error">Tentar Novamente</string>
     <string name="andetonha">AndeTonha</string>
     <string name="versao">Versão 1.0</string>
-    <string name="at">AT</string>
+    <string name="nome_app">Loteria Movel</string>
     
     <string name="resultado_megasena">Resultado Mega-Sena</string>
     <string name="resultado_quina">Resultado Quina</string>
     <string name="resultado_timemania">Resultado TimeMania</string>
     <string name="resultado_lotofacil">Resultado Loto Fácil</string>
     <string name="resultado_duplasena">Resultado Dupla-Sena</string>
-    
+    <string name="problemaInternt">Existe uma problema com sua conexão de internet.\n Toque na imagem para tentar novamente.</string>
+    <string name="click_para_gerar_palpite">Toque no icone para gerar palpite.</string>
     
     
 </resources>

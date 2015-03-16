@@ -15,17 +15,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.com.qx.andetonha.loteria.R;
+import br.com.qx.andetonha.loteria.utils.Utils;
 
 public class GerarApostasFragment extends Fragment {
 	private TextView numerosTV;
-	private Button btn_gerarApostas;
+	private ImageButton btn_gerarApostas;
 	private Context context;
-
+	private Utils utils;
 	private int tamanhoAposta = 0;
 
 	public GerarApostasFragment() {
@@ -35,10 +37,11 @@ public class GerarApostasFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_gerar_apostas,container, false);
 		context = getActivity();
-		
+		utils = new Utils(getActivity());
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			numerosTV = (TextView) view.findViewById(R.id.numeros_da_aposta);
-			btn_gerarApostas = (Button) view.findViewById(R.id.btn_gerarApostas);
+			btn_gerarApostas = (ImageButton) view.findViewById(R.id.btn_gerarApostas);
 
 			btn_gerarApostas.setOnClickListener(new OnClickListener() {
 
@@ -62,7 +65,7 @@ public class GerarApostasFragment extends Fragment {
 			sk_valorAposta.setProgress(0);
 			tamanhoAposta = 6;
 			tv_valorBP.setText("Quantidade de nº jogados: 6");
-			tv_betValue.setText("Valor da aposta aprox. :" + "\n" + "R$2,50");
+			tv_betValue.setText("Valor da aposta aprox :" + "\n" + "R$2,50");
 			sk_valorAposta.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 				@Override

@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.test.UiThreadTest;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,7 @@ public class LotoFacilFragment extends Fragment {
 	private TextView rateio_acertos11_TV;
 
 	private TextView acumulou_TV;
+	private Utils utils;
 
 	private ImageButton btn_verResultadosLotoFacil;
 
@@ -79,8 +81,9 @@ public class LotoFacilFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
-		
+		utils = new Utils(getActivity());
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout1.setVisibility(View.GONE);
 			relativeLayout2.setVisibility(View.GONE);

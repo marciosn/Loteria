@@ -68,7 +68,7 @@ public class TimeManiaFragment extends Fragment {
 	private TextView acumulou_TV;
 
 	private ImageButton btn_verResultadosTimeMania;
-
+	private Utils utils;
 	public TimeManiaFragment() {
 	}
 
@@ -80,8 +80,9 @@ public class TimeManiaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
-		
+		utils = new Utils(getActivity());
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();

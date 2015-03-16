@@ -29,8 +29,8 @@
         android:layout_below="@+id/imageButton1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        android:text="@string/andetonha"
-        android:textSize="65dp"
+        android:text="@string/nome_app"
+        android:textSize="50dp"
         android:textColor="@color/white"/>
 
     <TextView

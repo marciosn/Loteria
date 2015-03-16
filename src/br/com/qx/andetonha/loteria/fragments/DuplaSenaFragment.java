@@ -69,6 +69,7 @@ public class DuplaSenaFragment extends Fragment {
 	private TextView acumulado_TV;
 
 	private ImageButton btn_verResultadosDuplaSena;
+	private Utils utils;
 
 	public DuplaSenaFragment() {
 	}
@@ -81,8 +82,10 @@ public class DuplaSenaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		utils = new Utils(getActivity());
 		
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();

@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp" >
+        android:layout_height="450dp" >
 
         <LinearLayout
             android:id="@+id/linearLayout1"
@@ -54,21 +54,6 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/btn_gerarApostas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="137dp"
-            android:background="#FFA23D"
-            android:height="40dp"
-            android:onClick="Test"
-            android:shadowColor="#000000"
-            android:text="@string/gerar_aposta"
-            android:textColor="#ffffff"
-            android:width="150dp" />
-
         <SeekBar
             android:id="@+id/bp_valorAposta"
             android:layout_width="match_parent"
@@ -97,6 +82,26 @@
             android:layout_below="@+id/ultima_atualizacao_duplasena"
             android:gravity="center"
             android:text="@string/site_mega_sena"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <ImageButton
+            android:id="@+id/btn_gerarApostas"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_below="@+id/tv_site_mega_sena"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp"
+            android:background="@drawable/btn_redondo"
+            android:src="@drawable/icone_loteria" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_gerarApostas"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/click_para_gerar_palpite"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
     </RelativeLayout>

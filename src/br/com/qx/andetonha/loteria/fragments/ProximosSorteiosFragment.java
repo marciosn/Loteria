@@ -45,6 +45,7 @@ public class ProximosSorteiosFragment extends Fragment{
 	private TextView proximo_concurso_lotofacil;
 	private TextView proximo_concurso_quina;
 	private TextView proximo_concurso_timemania;
+	private Utils utils;
 	
 	public ProximosSorteiosFragment() {
 		// TODO Auto-generated constructor stub
@@ -55,8 +56,9 @@ public class ProximosSorteiosFragment extends Fragment{
 		View view = inflater.inflate(R.layout.fragment_proximos_sorteios, container, false);
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
-		
+		utils = new Utils(getActivity());
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();

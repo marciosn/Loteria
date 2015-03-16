@@ -13,20 +13,21 @@
         android:id="@+id/at"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
+        android:layout_below="@+id/logoSplash"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:text="@string/at"
+        android:text="@string/andetonha"
         android:textColor="@color/white"
-        android:textSize="80dp" />
+        android:textSize="60dp" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <ImageButton
+        android:id="@+id/logoSplash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="22dp"
+        android:background="@null"
         android:src="@drawable/splash" />
 
     <ProgressBar
@@ -35,5 +36,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/at"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/problemaInternt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progressBar1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/problemaInternt"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#ffffff"
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -59,6 +59,7 @@ public class MegaSenaFragment extends Fragment {
 
 	private Context context;
 	private ActionBar actionBar;
+	private Utils utils;
 
 	public MegaSenaFragment() {
 	}
@@ -71,8 +72,10 @@ public class MegaSenaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		utils = new Utils(getActivity());
 		
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout1.setVisibility(View.GONE);
 			relativeLayout2.setVisibility(View.GONE);

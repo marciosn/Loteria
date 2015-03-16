@@ -57,7 +57,7 @@ public class QuinaFragment extends Fragment {
 	private RelativeLayout relativeLayout;
 	private LinearLayout linearLayout;
 	private ImageButton btn_verResultadosSena;
-
+	private Utils utils;
 	public QuinaFragment() {
 	}
 
@@ -68,8 +68,10 @@ public class QuinaFragment extends Fragment {
 
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		utils = new Utils(getActivity());
 		
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();

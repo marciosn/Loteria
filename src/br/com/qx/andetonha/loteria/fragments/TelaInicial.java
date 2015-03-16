@@ -71,6 +71,7 @@ public class TelaInicial extends Fragment{
 	
 	private FragmentManager fragmentManager;
 	private ActionBar actionBar;
+	private Utils utils;
 	
 	public TelaInicial(FragmentManager fragmentManager, ActionBar actionBar) {
 		this.fragmentManager = fragmentManager;
@@ -87,8 +88,10 @@ public class TelaInicial extends Fragment{
 		
 		context = getActivity();
 		rq = Volley.newRequestQueue(context);
+		utils = new Utils(getActivity());
 		
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			carregarTextView(view);
 			relativeLayout.setVisibility(View.GONE);
 			doIfOnline();

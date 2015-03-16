@@ -20,7 +20,7 @@ import com.frnm.lgzu222050.AdListener;
 
 public class Home extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 	
-	public static final String LOTERIA = "Loteria";
+	public static final String TELA_INICIAÇ = "Tela Inicial";
 	public static final String GERAR_PALPITE = "Gerar Palpite";
 	public static final String MEGA_SENA = "Mega Sena";
 	public static final String QUINA = "Quina";
@@ -74,7 +74,7 @@ public class Home extends ActionBarActivity implements NavigationDrawerFragment.
 		switch (position) {
 		case 0:
 			fragment = new TelaInicial(fragmentManager, actionBar);
-			actionBar.setTitle(LOTERIA);
+			actionBar.setTitle(TELA_INICIAÇ);
 			break;
 		case 1:
 			fragment = new GerarApostasFragment();

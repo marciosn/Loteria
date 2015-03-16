@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import br.com.qx.andetonha.loteria.R;
+import br.com.qx.andetonha.loteria.utils.Utils;
 
 public class SobreNos extends Fragment{
+	private Utils utils;
 	
 	public SobreNos() {
 		// TODO Auto-generated constructor stub
@@ -21,8 +23,9 @@ public class SobreNos extends Fragment{
 		View view = inflater.inflate(R.layout.fragment_sobre_nos, container, false);
 		
 		TextView andeTonha = (TextView) view.findViewById(R.id.andetonha);
-		
+		utils = new Utils(getActivity());
 		try {
+			utils.setStyleActionBar(getResources(), getActivity());
 			Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Something in the way.ttf");
 			andeTonha.setTypeface(font);
 		} catch (Exception e) {
