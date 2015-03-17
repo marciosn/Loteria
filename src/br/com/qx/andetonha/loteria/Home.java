@@ -16,9 +16,9 @@ import br.com.qx.andetonha.loteria.fragments.QuinaFragment;
 import br.com.qx.andetonha.loteria.fragments.SobreNos;
 import br.com.qx.andetonha.loteria.fragments.TelaInicial;
 import br.com.qx.andetonha.loteria.fragments.TimeManiaFragment;
-import com.frnm.lgzu222050.AdListener;
 
-public class Home extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+public class Home extends ActionBarActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks{
 	
 	public static final String TELA_INICIAÇ = "Tela Inicial";
 	public static final String GERAR_PALPITE = "Gerar Palpite";
@@ -29,7 +29,6 @@ public class Home extends ActionBarActivity implements NavigationDrawerFragment.
 	public static final String DUPLA_SENA = "Dupla Sena";
 	public static final String PROXIMOS_SORTEIOS = "Próximos Sorteios";
 	public static final String SOBRE = "Sobre";
-	
 	
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -45,7 +44,6 @@ public class Home extends ActionBarActivity implements NavigationDrawerFragment.
 	private CharSequence mTitle;
 	private ActionBar actionBar;
 	private FragmentManager fragmentManager;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -109,6 +109,9 @@ public class DuplaSenaFragment extends Fragment {
 					@Override
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
+						if(linearLayout.getVisibility() == View.VISIBLE){
+							linearLayout.setVisibility(View.GONE);
+						}
 						hidePDialog();
 
 						try {
@@ -264,6 +267,9 @@ public class DuplaSenaFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});
@@ -272,6 +278,9 @@ public class DuplaSenaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});

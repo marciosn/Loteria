@@ -84,6 +84,9 @@ public class ProximosSorteiosFragment extends Fragment{
 					public void onResponse(String response) {
 						hidePDialog();
 						relativeLayout.setVisibility(View.VISIBLE);
+						if(linearLayout.getVisibility() == View.VISIBLE){
+							linearLayout.setVisibility(View.GONE);
+						}
 						
 						try {
 							Document doc = Jsoup.parse(response);
@@ -161,6 +164,9 @@ public class ProximosSorteiosFragment extends Fragment{
 			@Override
 			public void onClick(View v) {
 				doIfOnline();
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 			}
 		});
 	}

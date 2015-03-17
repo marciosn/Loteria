@@ -103,6 +103,10 @@ public class MegaSenaFragment extends Fragment {
 						relativeLayout2.setVisibility(View.VISIBLE);
 						btn_verResultadosSena.setVisibility(View.VISIBLE);
 						
+						if(error.getVisibility() == View.VISIBLE){
+							error.setVisibility(View.GONE);
+						}
+						
 						hidePDialog();
 						
 						try {							
@@ -221,6 +225,9 @@ public class MegaSenaFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
+				if(error.getVisibility() == View.VISIBLE){
+					error.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});
@@ -229,6 +236,9 @@ public class MegaSenaFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+				if(error.getVisibility() == View.VISIBLE){
+					error.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});

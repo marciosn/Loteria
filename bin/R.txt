@@ -645,8 +645,7 @@ int layout fragment_quina 0x7f030021
 int layout fragment_sobre_nos 0x7f030022
 int layout fragment_tela_inicial 0x7f030023
 int layout fragment_time_mania 0x7f030024
-int layout mraid_attrs 0x7f030025
-int layout support_simple_spinner_dropdown_item 0x7f030026
+int layout support_simple_spinner_dropdown_item 0x7f030025
 int menu global 0x7f0c0000
 int menu home 0x7f0c0001
 int menu splash 0x7f0c0002

@@ -109,6 +109,9 @@ public class TimeManiaFragment extends Fragment {
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
+						if(linearLayout.getVisibility() == View.VISIBLE){
+							linearLayout.setVisibility(View.GONE);
+						}
 
 						try {
 							Document doc = Jsoup.parse(response);
@@ -269,6 +272,9 @@ public class TimeManiaFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				doIfOnline();
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 			}
 		});
 
@@ -277,6 +283,9 @@ public class TimeManiaFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				doIfOnline();
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 			}
 		});
 

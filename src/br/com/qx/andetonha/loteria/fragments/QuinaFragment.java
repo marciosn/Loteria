@@ -99,6 +99,9 @@ public class QuinaFragment extends Fragment {
 					public void onResponse(String response) {
 						relativeLayout.setVisibility(View.VISIBLE);
 						hidePDialog();
+						if(linearLayout.getVisibility() == View.VISIBLE){
+							linearLayout.setVisibility(View.GONE);
+						}
 
 						try {
 							Document doc = Jsoup.parse(response);
@@ -219,6 +222,9 @@ public class QuinaFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				doIfOnline();
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 			}
 		});
 		
@@ -227,6 +233,9 @@ public class QuinaFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				doIfOnline();
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 			}
 		});
 	}

@@ -113,6 +113,11 @@ public class LotoFacilFragment extends Fragment {
 						relativeLayout1.setVisibility(View.VISIBLE);
 						relativeLayout2.setVisibility(View.VISIBLE);
 						btn_verResultadosLotoFacil.setVisibility(View.VISIBLE);
+						
+						if(linearLayout.getVisibility() == View.VISIBLE){
+							linearLayout.setVisibility(View.GONE);
+						}
+						
 						hidePDialog();
 						
 						try {
@@ -258,6 +263,9 @@ public class LotoFacilFragment extends Fragment {
 			
 			@Override
 			public void onClick(View v) {
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});
@@ -266,6 +274,9 @@ public class LotoFacilFragment extends Fragment {
 
 			@Override
 			public void onClick(View v) {
+				if(linearLayout.getVisibility() == View.VISIBLE){
+					linearLayout.setVisibility(View.GONE);
+				}
 				doIfOnline();
 			}
 		});

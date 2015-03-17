@@ -257,5 +257,6 @@
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
         </LinearLayout>
+
 </RelativeLayout>
 </ScrollView>
